@@ -95,12 +95,21 @@ the specified folder should exist and should have been used in a previous GYB ba
 
 Note that if you perform a restore to the same Gmail account, GYB will not create duplicate messages, instead you'll only see messages restored which were backed up by GYB then later deleted from the Gmail account.
 
+If you want to restore messages to an account other than the one you backed up, it's necessary to specify the backup folder. As an example,
+
+<code>
+gyb --email newaddress@gmail.com --action restore --local-folder GYB-GMail-Backup-oldaddress@gmail.com
+</code>
+
+will look for messages in the backup of the oldaddress@gmail.com account but restore them to the newaddress@gmail.com account.
+
 You can also use the "--label-restored NEWLABELNAME" argument to set a label on all restored messages. For example:
 
 <code>
-gyb --email youremail@gmail.com --action restore --label-restored "Restored 05-09-11"
+gyb --email newaddress@gmail.com --action restore --local-folder GYB-GMail-Backup-oldaddress@gmail.com --label-restored "Old Address"
 </code>
 
+will restore the message, always including an extra label of "Old Mail" on the restored messages.
 
 = Selective Backups With Gmail Searching =
 GYB supports selective backups using Gmail style mailbox searches. For example, suppose you wanted to only backup important or starred messages:
