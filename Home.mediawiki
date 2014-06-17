@@ -25,75 +25,98 @@ Open a command prompt on your computer. You can do this by going to Start -> Pro
 <code>
 cd \gyb
 </code>
+
 this works if you extracted GYB to c:\gyb. If you extracted it elsewhere, specify that location instead. Now type:
+
 <code>
 gyb --email youremail@gmail.com --action estimate
 </code>
+
 except use your real email address in place of youremail@gmail.com. GYB will open up a web page in order for you to grant access to your Gmail account. This authorization makes it possible for GYB to connect to your Google Account via IMAP and SMTP only, GYB will have no rights to any of your other Google Data. Make sure you are logged in to the Google account you specified before granting access. Once you've granted access, switch back to the command prompt window and hit enter. If no errors are printed, GYB should start estimating the size of your Gmail mailbox. Note that GYB only estimates the size of messages in the All Mail folder, it does not check Spam or Trash although these do count against your Gmail quota displayed at the bottom of your Gmail inbox. To accurately compare GYB's estimate and the Gmail inbox web page quota display, first empty your Trash and Spam folders.
 
 Congratulations, you're up and running with GYB! You probably want to move on to [[Getting-Started-with-GYB#step-4-performing-a-backup|performing a backup]] now.
 
 == Mac and Linux Users ==
 Open up a terminal window on your computer. On Linux, this is generally under Accessories -> Terminal. On Mac, it's under Applications -> Utilities -> Terminal. Now change to the directory where you extracted GYB. Try:
+
 <code>
 cd ~/gyb
 </code>
+
 this will work if you extracted the GYB files to a subfolder named gyb in your home directory. If you extracted them elsewhere, replace ~/gyb with the full path to them. Now run:
+
 <code>
 python gyb.py --email youremail@gmail.com --action estimate
 </code>
+
 If you get an error about python not being a valid program, make sure you have the Python interpreter installed on your machine. All Macs and most Linux installs should include Python but if not, you may need to research how to install it on your OS/Distribution.
 
 GYB will open up a web page in order for you to grant GYB access to your Gmail account. This authorization makes it possible for GYB to connect to your Google Account via IMAP and SMTP only, GYB will have no rights to any of your other Google Data. Make sure you are logged in to the Google account you specified before granting access. Once you've granted access, switch back to the command prompt window and hit enter. If no errors are printed, GYB should start estimating the size of your Gmail mailbox. Note that GYB only estimates the size of messages in the All Mail folder, it does not check Spam or Trash although these do count against your Gmail quota displayed at the bottom of your Gmail inbox. To accurately compare GYB's estimate and the Gmail inbox web page quota display, first empty your Trash and Spam folders.
 
 Instead of needing to type "python gyb.py" for every command, you can mark the gyb.py file as executable or we can use the alias command to shorten it to just "gyb":
+
 <code>
 alias gyb="python gyb.py"
 </code>
+
 Now when we can just type commands like:
+
 <code>
 gyb --email myemail@gmail.com --action estimate
 </code>
+
 you'll need to type the alias command each time you open a Terminal to run GYB. 
 
 Congratulations, you're up and running with GYB! You probably want to move on to [[Getting-Started-with-GYB#step-4-performing-a-backup|performing a backup]] now.
 
 = Step 4: Performing A Backup =
 A basic GYB backup is very easy to start. Just run:
+
 <code>
 gyb --email youremail@gmail.com --action backup
 </code>
+
 the "--action backup" is not strictly necessary since GYB defaults to backing up if an action is not specified. Assuming you've already granted GYB access to your Gmail messages, GYB will load the access token from youremail@gmail.com.cfg and use it to get access to your messages. By default, GYB will download and save all messages to a folder named "GYB-GMail-Backup-youremail@gmail.com". You can specify another folder for GYB to use with the --local-folder argument:
+
 <code>
 gyb --email youremail@gmail.com --local-folder "C:\Users\John\Documents\Johns_Gmail_Backup"
 </code>
+
 GYB will keep you update you as the backup progresses.
 
 = Step 5: Performing a Restore =
 Restores on GYB are also very simple:
+
 <code>
 gyb --email youremail@gmail.com --action restore --local-folder "c:\my_gmail_backup"
 </code>
+
 the specified folder should exist and should have been used in a previous GYB backup. If not specified, restores default to using the GYB-GMail-Backup-youremail@gmail.com folder just like the backup does. GYB will connect to your Gmail account and perform the restore of all messages in the backup folder.
 
 Note that if you perform a restore to the same Gmail account, GYB will not create duplicate messages, instead you'll only see messages restored which were backed up by GYB then later deleted from the Gmail account.
 
 You can also use the "--label-restored NEWLABELNAME" argument to set a label on all restored messages. For example:
+
 <code>
 gyb --email youremail@gmail.com --action restore --label-restored "Restored 05-09-11"
 </code>
 
+
 = Selective Backups With Gmail Searching =
 GYB supports selective backups using Gmail style mailbox searches. For example, suppose you wanted to only backup important or starred messages:
+
 <code>
 gyb --email youremail@gmail.com --search "is:important OR is:starred"
 </code>
+
 would cause GYB to only backup messages matching that search query. Virtually any Gmail search will work with GYB. The only exception being that specifying "in:anywhere" will not backup Trash and Spam, there's currently no way to backup Trash and Spam with GYB. [http://mail.google.com/support/bin/answer.py?answer=7190 See here for a detailed article] on all of the possible Gmail Search parameters.
 
 Note that Gmail searches also work with the "--action estimate" command. Suppose you wanted to know how much space emails with .PDF attachments are using in your Gmail mailbox:
+
 <code>
 gyb --email youremail@gmail.com --action estimate --search "filename:PDF"
 </code>
+
 will estimate the size of messages with PDF attachments only. Try substituting DOC, JPG, ZIP and other common file attachments for PDF.
 
 = Advanced options =
@@ -160,6 +183,7 @@ There are a few steps involved with creating and authorizing a service account f
  # Now you can run GYB with the service account option. Specify your service account email address from above when using --service-account.
 
 Try running:
+
 <code>
 gyb --email yourusersemail@yourcompany.com --service-account 123456789@developer.gserviceaccount.com
 </code>
