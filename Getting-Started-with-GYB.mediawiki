@@ -6,10 +6,10 @@ GYB works with Gmail.com and Google Apps accounts.
 
 = Step 1: Download GYB =
 == Windows Users ==
-Head to the [http://code.google.com/p/got-your-back/downloads/list Downloads page] and download the latest Windows version of GYB, do not download the Python Source version (unless you really know what you're doing).
+Head to the [[https://github.com/jay0lee/got-your-back/releases releases page]] and download the latest Windows version of GYB, do not download the Python Source version (unless you really know what you're doing).
 
 == Mac and Linux Users ==
-Head to the [http://code.google.com/p/got-your-back/downloads/list Downloads page] and download the latest Python source version of GYB, do not download the Windows version.
+Head to the [[https://github.com/jay0lee/got-your-back/releases releases page]] and download the latest Python source version of GYB, do not download the Windows version.
 
 = Step 2: Extract GYB =
 == Windows Users ==
