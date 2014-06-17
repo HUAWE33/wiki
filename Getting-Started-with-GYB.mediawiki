@@ -99,13 +99,13 @@ will estimate the size of messages with PDF attachments only. Try substituting D
 = Advanced options =
 
 == --noresume ==
-GYB keeps a record of messages restored to each account and will pick up where it left off should the restore not finish. The ***--noresume*** switch will make GYB ignore messages already restored and restart the restore at the beginning.
+GYB keeps a record of messages restored to each account and will pick up where it left off should the restore not finish. The <code>--noresume</code> switch will make GYB ignore messages already restored and restart the restore at the beginning.
 
 == --fast-incremental ==
-By default, GYB will refresh the stored labels and flags for messages that have already been backed up, just in case they changed after the backup. This step can be skipped by supplying the ***--fast-incremental*** switch on the command line.
+By default, GYB will refresh the stored labels and flags for messages that have already been backed up, just in case they changed after the backup. This step can be skipped by supplying the <code>--fast-incremental</code> switch on the command line.
 
 == --action reindex ==
-GYB keeps track of the messages backed up by using the IMAP UID values for the messages. It does not happen often, but it is sometimes necessary to reorganize an IMAP mailbox and assign new UIDs. When this happens, GYB will refuse to use the existing folder for further backups. The ***--action reindex*** action will rebuild the UID index using information from the message headers. It is slow, but faster than re-downloading the full account to start a new backup.
+GYB keeps track of the messages backed up by using the IMAP UID values for the messages. It does not happen often, but it is sometimes necessary to reorganize an IMAP mailbox and assign new UIDs. When this happens, GYB will refuse to use the existing folder for further backups. The <code>--action reindex</code> action will rebuild the UID index using information from the message headers. It is slow, but faster than re-downloading the full account to start a new backup.
 
 (Another option is to make a new backup folder, but include a search for "after:" some recent date for that folder. If it is ever necessary to restore the mailbox, you would then need to restore from both folders.)
 
@@ -127,7 +127,7 @@ Specify the Google Apps admin to utilize when restoring messages to a group with
 Just count the number of messages in a user mailbox. Note, to compare this number to what you see in Gmail, you should turn conversation mode off in general settings and search for "-is:chat". This ensures you are counting individual messages (not conversations) and that archived chats which are not backed up by GYB by default are not counted.
 
 == --action purge ==
-***DANGEROUS!!!*** This option will completely delete messages. Running this command without a --search parameter will EMPTY YOUR ENTIRE MAILBOX. This removes messages from Trash and Spam folders also so there is no ability to restore from the mailbox itself. Use this option with extreme caution. You have been warned. It is highly recommended to do a backup before a purge.
+DANGEROUS!!! This option will completely delete messages. Running this command without a <code>--search</code> parameter will EMPTY YOUR ENTIRE MAILBOX. This removes messages from Trash and Spam folders also so there is no ability to restore from the mailbox itself. Use this option with extreme caution. You have been warned. It is highly recommended to do a backup before a purge.
 
 == --use-imap-folder ==
 By default, GYB always connects to the "All Mail" IMAP folder in order to perform backups, estimates, restores and counts. However, with this option, you can specify another IMAP folder to utilize. This option is most useful in backing up Archived Chats by specifying {{{--use-imap-folder [Gmail]/Chats}}}. Make sure the Chats folder is visible to IMAP in your Gmail Settings -> Labels before running this. Note that chats cannot be restored to the Chats label in Gmail since the folder is read-only for IMAP.
@@ -164,6 +164,6 @@ Try running:
 gyb --email yourusersemail@yourcompany.com --service-account 123456789@developer.gserviceaccount.com
 }}}
 
-in this example, replace 123456789@developer.gserviceaccount.com with ***your service account email address from the cloud console.***
+in this example, replace 123456789@developer.gserviceaccount.com with your service account email address from the cloud console.
 
-***WARNING:*** Service Accounts offer very powerful control over your Google Apps domain. Do not use this option on a computer you do not trust! Do not leave the privatekey.p12 file in places where others can find it! If you suspect your Service Account has been stolen, delete the API project in the API console and unauthorize it's access to your domain.
+WARNING: Service Accounts offer very powerful control over your Google Apps domain. Do not use this option on a computer you do not trust! Do not leave the privatekey.p12 file in places where others can find it! If you suspect your Service Account has been stolen, delete the API project in the API console and unauthorize it's access to your domain.
