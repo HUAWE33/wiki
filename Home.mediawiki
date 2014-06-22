@@ -130,6 +130,18 @@ will estimate the size of messages with PDF attachments only. Try substituting D
 
 = Advanced options =
 
+== --search ==
+Optional: On backup, estimate, count and purge, Gmail search to scope operation against.
+
+== --local-folder ==
+On backup, restore, estimate, local folder to use. Default is GYB-GMail-Backup-<email>
+
+== --label-restored ==
+On restore, all messages will additionally receive this label. For example, "--label_restored gyb-restored" will label all uploaded messages with a gyb-restored label.
+
+== --strip-labels ==
+On restore and restore-mbox, strip existing labels from messages except for those explicitly declared with the --label-restored parameter.
+
 == --noresume ==
 GYB keeps a record of messages restored to each account and will pick up where it left off should the restore not finish. The <code>--noresume</code> switch will make GYB ignore messages already restored and restart the restore at the beginning.
 
@@ -140,6 +152,11 @@ By default, GYB will refresh the stored labels and flags for messages that have 
 GYB keeps track of the messages backed up by using the IMAP UID values for the messages. It does not happen often, but it is sometimes necessary to reorganize an IMAP mailbox and assign new UIDs. When this happens, GYB will refuse to use the existing folder for further backups. The <code>--action reindex</code> action will rebuild the UID index using information from the message headers. It is slow, but faster than re-downloading the full account to start a new backup.
 
 (Another option is to make a new backup folder, but include a search for "after:" some recent date for that folder. If it is ever necessary to restore the mailbox, you would then need to restore from both folders.)
+
+== --action restore-mbox ==
+Restore mbox files that you've exported from [https://www.google.com/settings/takeout Gmail Takeout], [https://support.google.com/vault/answer/2462365?hl=en Google Vault], [https://code.google.com/p/google-apps-manager/wiki/ExamplesAccountAuditing#User_Mailbox_Exports GAM Email Audit Exports] or any other MBOX format file you have.
+
+Use the --local-folder option to specify the path where you've extracted all of your mbox files. GYB will restore messages from all .mbox and .mbx files in the directory and any sub-directories.
 
 == --action restore-group ==
 Google Apps for Business and Education Only. This feature allows you to restore messages to a Google Group rather than a user mailbox. It's important to note that:
