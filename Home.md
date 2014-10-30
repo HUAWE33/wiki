@@ -1,25 +1,25 @@
-= Introduction =
+# Introduction
 
 Got Your Back (GYB) is a command line tool that backs up and restores your Gmail account. This page provides simple instructions for downloading, installing and starting to use GYB.
 
 GYB works with Gmail.com and Google Apps accounts.
 
-= Step 1: Download GYB =
-== Windows Users ==
+# Step 1: Download GYB
+## Windows Users
 Head to the [https://github.com/jay0lee/got-your-back/releases releases page] and download the latest Windows version of GYB, do not download the Python Source version (unless you really know what you're doing).
 
-== Mac and Linux Users ==
+## Mac and Linux Users
 Head to the [https://github.com/jay0lee/got-your-back/releases releases page] and download the latest Python source version of GYB, do not download the Windows version.
 
-= Step 2: Extract GYB =
-== Windows Users ==
+# Step 2: Extract GYB
+## Windows Users
 Use the archive extraction tool of your choice to extract the files from the GYB .zip you downloaded. Windows XP and higher have a built in tool that works just fine. When specifying where to extract GYB, I suggest extracting directly to C:\ so that the files will reside in C:\gyb. Once completed, GYB should exist at C:\gyb\gyb.exe
 
-== Mac and Linux Users ==
+## Mac and Linux Users
 Use the archive extraction tool of your choice to extract the files from the GYB .zip you downloaded. I suggest extracting the files to a sub-folder of your home directory.
 
-= Step 3: Running GYB for the First Time =
-== Windows Users ==
+# Step 3: Running GYB for the First Time
+## Windows Users
 Open a command prompt on your computer. You can do this by going to Start -> Programs -> Accessories -> Command Prompt or by opening the Run... dialog on the start menu and typing CMD then enter. Now change to the directory where you extracted GAM. The command to change directories looks like:
 
 <code>
@@ -36,7 +36,7 @@ except use your real email address in place of youremail@gmail.com. GYB will ope
 
 Congratulations, you're up and running with GYB! You probably want to move on to [[Getting-Started-with-GYB#step-4-performing-a-backup|performing a backup]] now.
 
-== Mac and Linux Users ==
+## Mac and Linux Users
 Open up a terminal window on your computer. On Linux, this is generally under Accessories -> Terminal. On Mac, it's under Applications -> Utilities -> Terminal. Now change to the directory where you extracted GYB. Try:
 
 <code>
@@ -69,7 +69,7 @@ you'll need to type the alias command each time you open a Terminal to run GYB.
 
 Congratulations, you're up and running with GYB! You probably want to move on to [[Getting-Started-with-GYB#step-4-performing-a-backup|performing a backup]] now.
 
-= Step 4: Performing A Backup =
+# Step 4: Performing A Backup
 A basic GYB backup is very easy to start. Just run:
 
 <code>
@@ -84,7 +84,7 @@ gyb --email youremail@gmail.com --local-folder "C:\Users\John\Documents\Johns_Gm
 
 GYB will keep you update you as the backup progresses.
 
-= Step 5: Performing a Restore =
+# Step 5: Performing a Restore
 Restores on GYB are also very simple:
 
 <code>
@@ -111,7 +111,7 @@ gyb --email newaddress@gmail.com --action restore --local-folder GYB-GMail-Backu
 
 will restore the message, always including an extra label of "Old Mail" on the restored messages.
 
-= Selective Backups With Gmail Searching =
+# Selective Backups With Gmail Searching
 GYB supports selective backups using Gmail style mailbox searches. For example, suppose you wanted to only backup important or starred messages:
 
 <code>
@@ -128,37 +128,37 @@ gyb --email youremail@gmail.com --action estimate --search "filename:PDF"
 
 will estimate the size of messages with PDF attachments only. Try substituting DOC, JPG, ZIP and other common file attachments for PDF.
 
-= Advanced options =
+# Advanced options
 
-== --search ==
+## --search
 Optional: On backup, estimate, count and purge, Gmail search to scope operation against.
 
-== --local-folder ==
+## --local-folder
 On backup, restore, estimate, local folder to use. Default is GYB-GMail-Backup-<email>
 
-== --label-restored ==
+## --label-restored
 On restore, all messages will additionally receive this label. For example, "--label_restored gyb-restored" will label all uploaded messages with a gyb-restored label.
 
-== --strip-labels ==
+## --strip-labels
 On restore and restore-mbox, strip existing labels from messages except for those explicitly declared with the --label-restored parameter.
 
-== --noresume ==
+## --noresume
 GYB keeps a record of messages restored to each account and will pick up where it left off should the restore not finish. The <code>--noresume</code> switch will make GYB ignore messages already restored and restart the restore at the beginning.
 
-== --fast-incremental ==
+## --fast-incremental
 By default, GYB will refresh the stored labels and flags for messages that have already been backed up, just in case they changed after the backup. This step can be skipped by supplying the <code>--fast-incremental</code> switch on the command line.
 
-== --action reindex ==
+## --action reindex
 GYB keeps track of the messages backed up by using the IMAP UID values for the messages. It does not happen often, but it is sometimes necessary to reorganize an IMAP mailbox and assign new UIDs. When this happens, GYB will refuse to use the existing folder for further backups. The <code>--action reindex</code> action will rebuild the UID index using information from the message headers. It is slow, but faster than re-downloading the full account to start a new backup.
 
 (Another option is to make a new backup folder, but include a search for "after:" some recent date for that folder. If it is ever necessary to restore the mailbox, you would then need to restore from both folders.)
 
-== --action restore-mbox ==
+## --action restore-mbox
 Restore mbox files that you've exported from [https://www.google.com/settings/takeout Gmail Takeout], [https://support.google.com/vault/answer/2462365?hl=en Google Vault], [https://code.google.com/p/google-apps-manager/wiki/ExamplesAccountAuditing#User_Mailbox_Exports GAM Email Audit Exports] or any other MBOX format file you have.
 
 Use the --local-folder option to specify the path where you've extracted all of your mbox files. GYB will restore messages from all .mbox and .mbx files in the directory and any sub-directories.
 
-== --action restore-group ==
+## --action restore-group
 Google Apps for Business and Education Only. This feature allows you to restore messages to a Google Group rather than a user mailbox. It's important to note that:
  * Message labels, read/unread status, stars and other metadata are not preserved with restore-group.
  * There is no API or method to extract or backup messages stored in Google Groups. GYB can restore messages to a group but cannot backup message in a group, it's a one-way process.
@@ -169,28 +169,28 @@ This option requires the --use-admin option below be specified. The --email opti
 
 A good use case for restore-group would be a user who is nearing Gmail quota. You could do a selective backup of the user's mailbox with a GYB backup using <code>--search before:2011/04/13 smaller:16M</code> to get only messages older than 2 years and smaller than 16mb. Then restore the messages to a Google Group and give the user exclusive access to the new group. Finally, free up the user's mailbox by performing a purge using the same search parameters. I'd also recommend holding on to the local backup of the user's mail should you ever wish to restore to the mailbox.
 
-== --use-admin ==
+## --use-admin
 Specify the Google Apps admin to utilize when restoring messages to a group with --action restore-group. This user should be a super administrator, delegated admins do not have sufficient privileges to perform group restores.
 
-== --action-count ==
+## --action-count
 Just count the number of messages in a user mailbox. Note, to compare this number to what you see in Gmail, you should turn conversation mode off in general settings and search for "-is:chat". This ensures you are counting individual messages (not conversations) and that archived chats which are not backed up by GYB by default are not counted.
 
-== --action purge ==
+## --action purge
 DANGEROUS!!! This option will completely delete messages. Running this command without a <code>--search</code> parameter will EMPTY YOUR ENTIRE MAILBOX. This removes messages from Trash and Spam folders also so there is no ability to restore from the mailbox itself. Use this option with extreme caution. You have been warned. It is highly recommended to do a backup before a purge.
 
-== --action purge-labels ==
+## --action purge-labels
 DANGEROUS!!! This option will delete all user labels for the mailbox. No messages will be deleted but everything will be left unlabeled!
 
-== --use-imap-folder ==
+## --use-imap-folder
 By default, GYB always connects to the "All Mail" IMAP folder in order to perform backups, estimates, restores and counts. However, with this option, you can specify another IMAP folder to utilize. This option is most useful in backing up Archived Chats by specifying <code>--use-imap-folder [Gmail]/Chats</code>. Make sure the Chats folder is visible to IMAP in your Gmail Settings -> Labels before running this. Note that chats cannot be restored to the Chats label in Gmail since the folder is read-only for IMAP.
 
-== --batch-size ==
+## --batch-size
 By default, GYB grabs the full content of 100 messages at a time for backup. If the mailbox has lots of very small messages, you may see better backup performance by backing up more messages at once with a --batch-size 500 parameter. If the mailbox has many very large messages, it may take a very long time for GYB to backup anything as it could be pulling down up to 2500mb (100 messages x 25mb each) of data for each batch. Try specifying something smaller like --batch-size 4.
 
-== --service-account ==
+## --service-account
 Use a Google Service Account to authenticate rather than standard 3-legged OAuth authentication. This option is only for Google Apps for Business and Education users. See below for details.
 
-= Google Apps Business and Education Admins: Backup, Restore and Estimate Users and Restore to Groups=
+# Google Apps Business and Education Admins: Backup, Restore and Estimate Users and Restore to Groups=
 If you're using Google Apps for Business or Education Edition, it's possible to use GYB with your users without needing to know their password. This works because GYB makes use of a special Google Apps feature called Service Accounts.
 
 There are a few steps involved with creating and authorizing a service account for GYB.
