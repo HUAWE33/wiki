@@ -154,7 +154,7 @@ GYB keeps track of the messages backed up by using the IMAP UID values for the m
 (Another option is to make a new backup folder, but include a search for "after:" some recent date for that folder. If it is ever necessary to restore the mailbox, you would then need to restore from both folders.)
 
 ## --action restore-mbox
-Restore mbox files that you've exported from [https://www.google.com/settings/takeout Gmail Takeout], [https://support.google.com/vault/answer/2462365?hl=en Google Vault], [https://code.google.com/p/google-apps-manager/wiki/ExamplesAccountAuditing#User_Mailbox_Exports GAM Email Audit Exports] or any other MBOX format file you have.
+Restore mbox files that you've exported from [Gmail Takeout](https://www.google.com/settings/takeout), [Google Vault](https://support.google.com/vault/answer/2462365?hl=en), [GAM Email Audit Exports](https://github.com/jay0lee/GAM/wiki/ExamplesAccountAuditing#user-mailbox-exports) or any other MBOX format file you have.
 
 Use the --local-folder option to specify the path where you've extracted all of your mbox files. GYB will restore messages from all .mbox and .mbx files in the directory and any sub-directories.
 
@@ -195,7 +195,7 @@ If you're using Google Apps for Business or Education Edition, it's possible to 
 
 There are a few steps involved with creating and authorizing a service account for GYB.
 
-1. Go to the [https://cloud.google.com/console Google Cloud Console]
+1. Go to the [Google Cloud Console](https://cloud.google.com/console)
 1. Click "Create Project"
 1. Give your project a name and a unique project ID
 1. One the project is finished being created, click "APIs & auth" to the left
@@ -208,15 +208,19 @@ There are a few steps involved with creating and authorizing a service account f
 1. Under the ***Service Account section***, make a note of the Client ID and Email Address Values. You'll need them later so either copy them into Notepad or keep the API console window open in another tab. Make sure you're using the Service Account values, not the ones under "Compute Engine and App Engine"
 1. Go to your Google Apps Control Panel.
 1. Navigate to Advanced Tools -> Manage third party OAuth Client access.
-1. For Client Name, enter the Client ID you recorded above. For API Scopes, enter exactly: <code>https://mail.google.com/,https://www.googleapis.com/auth/apps.groups.migration</code>
+1. For Client Name, enter the Client ID you recorded above. For API Scopes, enter exactly: 
+
+```
+https://mail.google.com/,https://www.googleapis.com/auth/apps.groups.migration
+```
 
 Now you can run GYB with the service account option. Specify your service account email address from above when using --service-account.
 
 Try running:
 
-<code>
+```
 gyb --email yourusersemail@yourcompany.com --service-account 123456789@developer.gserviceaccount.com
-</code>
+```
 
 in this example, replace 123456789@developer.gserviceaccount.com with your service account email address from the cloud console.
 
