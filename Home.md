@@ -6,10 +6,10 @@ GYB works with Gmail.com and Google Apps accounts.
 
 # Step 1: Download GYB
 ## Windows Users
-Head to the [https://github.com/jay0lee/got-your-back/releases releases page] and download the latest Windows version of GYB, do not download the Python Source version (unless you really know what you're doing).
+Head to the [releases page](https://github.com/jay0lee/got-your-back/releases) and download the latest Windows version of GYB, do not download the Python Source version (unless you really know what you're doing).
 
 ## Mac and Linux Users
-Head to the [https://github.com/jay0lee/got-your-back/releases releases page] and download the latest Python source version of GYB, do not download the Windows version.
+Head to the [releases page](https://github.com/jay0lee/got-your-back/releases) and download the latest Python source version of GYB, do not download the Windows version.
 
 # Step 2: Extract GYB
 ## Windows Users
@@ -22,15 +22,15 @@ Use the archive extraction tool of your choice to extract the files from the GYB
 ## Windows Users
 Open a command prompt on your computer. You can do this by going to Start -> Programs -> Accessories -> Command Prompt or by opening the Run... dialog on the start menu and typing CMD then enter. Now change to the directory where you extracted GAM. The command to change directories looks like:
 
-<code>
+```
 cd \gyb
-</code>
+```
 
 this works if you extracted GYB to c:\gyb. If you extracted it elsewhere, specify that location instead. Now type:
 
-<code>
+```
 gyb --email youremail@gmail.com --action estimate
-</code>
+```
 
 except use your real email address in place of youremail@gmail.com. GYB will open up a web page in order for you to grant access to your Gmail account. This authorization makes it possible for GYB to connect to your Google Account via IMAP and SMTP only, GYB will have no rights to any of your other Google Data. Make sure you are logged in to the Google account you specified before granting access. Once you've granted access, switch back to the command prompt window and hit enter. If no errors are printed, GYB should start estimating the size of your Gmail mailbox. Note that GYB only estimates the size of messages in the All Mail folder, it does not check Spam or Trash although these do count against your Gmail quota displayed at the bottom of your Gmail inbox. To accurately compare GYB's estimate and the Gmail inbox web page quota display, first empty your Trash and Spam folders.
 
@@ -39,15 +39,15 @@ Congratulations, you're up and running with GYB! You probably want to move on to
 ## Mac and Linux Users
 Open up a terminal window on your computer. On Linux, this is generally under Accessories -> Terminal. On Mac, it's under Applications -> Utilities -> Terminal. Now change to the directory where you extracted GYB. Try:
 
-<code>
+```
 cd ~/gyb
-</code>
+```
 
 this will work if you extracted the GYB files to a subfolder named gyb in your home directory. If you extracted them elsewhere, replace ~/gyb with the full path to them. Now run:
 
-<code>
+```
 python gyb.py --email youremail@gmail.com --action estimate
-</code>
+```
 
 If you get an error about python not being a valid program, make sure you have the Python interpreter installed on your machine. All Macs and most Linux installs should include Python but if not, you may need to research how to install it on your OS/Distribution.
 
@@ -55,15 +55,15 @@ GYB will open up a web page in order for you to grant GYB access to your Gmail a
 
 Instead of needing to type "python gyb.py" for every command, you can mark the gyb.py file as executable or we can use the alias command to shorten it to just "gyb":
 
-<code>
+```
 alias gyb="python gyb.py"
-</code>
+```
 
 Now when we can just type commands like:
 
-<code>
+```
 gyb --email myemail@gmail.com --action estimate
-</code>
+```
 
 you'll need to type the alias command each time you open a Terminal to run GYB. 
 
@@ -72,24 +72,24 @@ Congratulations, you're up and running with GYB! You probably want to move on to
 # Step 4: Performing A Backup
 A basic GYB backup is very easy to start. Just run:
 
-<code>
+```
 gyb --email youremail@gmail.com --action backup
-</code>
+```
 
 the "--action backup" is not strictly necessary since GYB defaults to backing up if an action is not specified. Assuming you've already granted GYB access to your Gmail messages, GYB will load the access token from youremail@gmail.com.cfg and use it to get access to your messages. By default, GYB will download and save all messages to a folder named "GYB-GMail-Backup-youremail@gmail.com". You can specify another folder for GYB to use with the --local-folder argument:
 
-<code>
+```
 gyb --email youremail@gmail.com --local-folder "C:\Users\John\Documents\Johns_Gmail_Backup"
-</code>
+```
 
 GYB will keep you update you as the backup progresses.
 
 # Step 5: Performing a Restore
 Restores on GYB are also very simple:
 
-<code>
+```
 gyb --email youremail@gmail.com --action restore --local-folder "c:\my_gmail_backup"
-</code>
+```
 
 the specified folder should exist and should have been used in a previous GYB backup. If not specified, restores default to using the GYB-GMail-Backup-youremail@gmail.com folder just like the backup does. GYB will connect to your Gmail account and perform the restore of all messages in the backup folder.
 
@@ -97,34 +97,34 @@ Note that if you perform a restore to the same Gmail account, GYB will not creat
 
 If you want to restore messages to an account other than the one you backed up, it's necessary to specify the backup folder. As an example,
 
-<code>
+```
 gyb --email newaddress@gmail.com --action restore --local-folder GYB-GMail-Backup-oldaddress@gmail.com
-</code>
+```
 
 will look for messages in the backup of the oldaddress@gmail.com account but restore them to the newaddress@gmail.com account.
 
 You can also use the "--label-restored NEWLABELNAME" argument to set a label on all restored messages. For example:
 
-<code>
+```
 gyb --email newaddress@gmail.com --action restore --local-folder GYB-GMail-Backup-oldaddress@gmail.com --label-restored "Old Address"
-</code>
+```
 
 will restore the message, always including an extra label of "Old Mail" on the restored messages.
 
 # Selective Backups With Gmail Searching
 GYB supports selective backups using Gmail style mailbox searches. For example, suppose you wanted to only backup important or starred messages:
 
-<code>
+```
 gyb --email youremail@gmail.com --search "is:important OR is:starred"
-</code>
+```
 
 would cause GYB to only backup messages matching that search query. Virtually any Gmail search will work with GYB. The only exception being that specifying "in:anywhere" will not backup Trash and Spam, there's currently no way to backup Trash and Spam with GYB. [http://mail.google.com/support/bin/answer.py?answer=7190 See here for a detailed article] on all of the possible Gmail Search parameters.
 
 Note that Gmail searches also work with the "--action estimate" command. Suppose you wanted to know how much space emails with .PDF attachments are using in your Gmail mailbox:
 
-<code>
+```
 gyb --email youremail@gmail.com --action estimate --search "filename:PDF"
-</code>
+```
 
 will estimate the size of messages with PDF attachments only. Try substituting DOC, JPG, ZIP and other common file attachments for PDF.
 
@@ -146,10 +146,10 @@ On restore and restore-mbox, strip existing labels from messages except for thos
 GYB keeps a record of messages restored to each account and will pick up where it left off should the restore not finish. The <code>--noresume</code> switch will make GYB ignore messages already restored and restart the restore at the beginning.
 
 ## --fast-incremental
-By default, GYB will refresh the stored labels and flags for messages that have already been backed up, just in case they changed after the backup. This step can be skipped by supplying the <code>--fast-incremental</code> switch on the command line.
+By default, GYB will refresh the stored labels and flags for messages that have already been backed up, just in case they changed after the backup. This step can be skipped by supplying the ```--fast-incremental``` switch on the command line.
 
 ## --action reindex
-GYB keeps track of the messages backed up by using the IMAP UID values for the messages. It does not happen often, but it is sometimes necessary to reorganize an IMAP mailbox and assign new UIDs. When this happens, GYB will refuse to use the existing folder for further backups. The <code>--action reindex</code> action will rebuild the UID index using information from the message headers. It is slow, but faster than re-downloading the full account to start a new backup.
+GYB keeps track of the messages backed up by using the IMAP UID values for the messages. It does not happen often, but it is sometimes necessary to reorganize an IMAP mailbox and assign new UIDs. When this happens, GYB will refuse to use the existing folder for further backups. The ```--action reindex``` action will rebuild the UID index using information from the message headers. It is slow, but faster than re-downloading the full account to start a new backup.
 
 (Another option is to make a new backup folder, but include a search for "after:" some recent date for that folder. If it is ever necessary to restore the mailbox, you would then need to restore from both folders.)
 
