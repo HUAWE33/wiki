@@ -172,7 +172,7 @@ A good use case for restore-group would be a user who is nearing Gmail quota. Yo
 ## --use-admin
 Specify the Google Apps admin to utilize when restoring messages to a group with --action restore-group. This user should be a super administrator, delegated admins do not have sufficient privileges to perform group restores.
 
-## --action-count
+## --action count
 Just count the number of messages in a user mailbox. Note, to compare this number to what you see in Gmail, you should turn conversation mode off in general settings and search for "-is:chat". This ensures you are counting individual messages (not conversations) and that archived chats which are not backed up by GYB by default are not counted.
 
 ## --action purge
