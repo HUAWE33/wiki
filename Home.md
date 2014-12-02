@@ -198,16 +198,21 @@ There are a few steps involved with creating and authorizing a service account f
 1. Go to the [Google Cloud Console](https://cloud.google.com/console)
 1. Click "Create Project"
 1. Give your project a name and a unique project ID
-1. One the project is finished being created, click "APIs & auth" to the left
+1. Once the project is finished being created, click "APIs & auth" to the left
+1. Go to the "APIs" menu on the left
 1. In the list of APIs, scroll down to "Groups Migration API" and click the switch to toggle it ON. Agree to the terms.
 1. Go to "Credentials" menu to the left.
-1. Click the "CREATE NEW CLIENT ID" red button.
-1. Choose the "Service Account" radio button and click the "Create Client ID" blue button.
+1. Click the blue "CREATE NEW CLIENT ID" button.
+1. Choose the "Service Account" radio button and click the blue "Create Client ID" button.
 1. Your browser will download a file. Change the downloaded file name to privatekey.p12 and save it to the same location as gyb.exe or gyb.py
-1. click the blue "Okay, got it" button.
+1. Click the blue "Okay, got it" button.
 1. Under the ***Service Account section***, make a note of the Client ID and Email Address Values. You'll need them later so either copy them into Notepad or keep the API console window open in another tab. Make sure you're using the Service Account values, not the ones under "Compute Engine and App Engine"
-1. Go to your Google Apps Control Panel.
-1. Navigate to Advanced Tools -> Manage third party OAuth Client access.
+1. Go to your Google Apps Control Panel (https://admin.google.com )
+1. Click Security
+1. Click Show More
+1. Click Advanced Settings (Managed advanced security features such as authentication and integrating Google Apps with internal services).
+1. Click Manage API Client Access
+1. At this point, you are at (unless Google has changed URLs again) https://admin.google.com/AdminHome?chromeless=1#OGX:ManageOauthClients
 1. For Client Name, enter the Client ID you recorded above. For API Scopes, enter exactly: 
 
 ```
