@@ -230,3 +230,19 @@ gyb --email yourusersemail@yourcompany.com --service-account 123456789@developer
 in this example, replace 123456789@developer.gserviceaccount.com with your service account email address from the cloud console.
 
 WARNING: Service Accounts offer very powerful control over your Google Apps domain. Do not use this option on a computer you do not trust! Do not leave the privatekey.p12 file in places where others can find it! If you suspect your Service Account has been stolen, delete the API project in the API console and unauthorize it's access to your domain.
+
+# Troubleshooting
+
+Below you'll find some possible errors and what they could mean.
+
+## invalid_grant
+
+This can occur if you have a typo in your service account command line, e.g. you have the client id instead of the email address.
+
+## access_denied
+
+This can occur if you've failed to add the proper API scopes (mail, groups migration) for a service account.
+
+## invalid_request
+
+This can occur if you're attempting to download mail from an account that is suspended; only active accounts can be backed up via Got Your Back.
