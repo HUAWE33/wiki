@@ -190,7 +190,7 @@ By default, GYB grabs the full content of 100 messages at a time for backup. If 
 ## --service-account
 Use a Google Service Account to authenticate rather than standard 3-legged OAuth authentication. This option is only for Google Apps for Business and Education users. See below for details.
 
-# Google Apps Business and Education Admins: Backup, Restore and Estimate Users and Restore to Groups=
+# Google Apps Business and Education Admins: Backup, Restore and Estimate Users and Restore to Groups
 If you're using Google Apps for Business or Education Edition, it's possible to use GYB with your users without needing to know their password. This works because GYB makes use of a special Google Apps feature called Service Accounts.
 
 There are a few steps involved with creating and authorizing a service account for GYB.
