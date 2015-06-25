@@ -221,9 +221,7 @@ There are a few steps involved with creating and authorizing a service account f
 https://mail.google.com/,https://www.googleapis.com/auth/apps.groups.migration
 ```
 
-Now you can run GYB with the service account option. Specify your service account email address from above when using --service-account.
-
-Try running:
+Now you can run GYB with the service account option. Specify your service account email address from above when using --service-account.  If you are running GYB for the first time, see the directions above for setting up GYB for the first time.  Once that is complete, try running:
 
 ```
 gyb --email yourusersemail@yourcompany.com --service-account 123456789@developer.gserviceaccount.com
