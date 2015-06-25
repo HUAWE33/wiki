@@ -195,18 +195,20 @@ If you're using Google Apps for Business or Education Edition, it's possible to 
 
 There are a few steps involved with creating and authorizing a service account for GYB.
 
-1. Go to the [Google Cloud Console](https://cloud.google.com/console)
+1. Go to the [Google Developers Console](https://console.developers.google.com)
 1. Click "Create Project"
 1. Give your project a name and a unique project ID
 1. Once the project is finished being created, click "APIs & auth" to the left
 1. Go to the "APIs" menu on the left
-1. In the list of APIs, scroll down to "Groups Migration API" and click the switch to toggle it ON. Agree to the terms.
+1. In the list of APIs, search for "Groups Migration API" and click the switch to toggle it ON. Agree to the terms.
 1. Go to "Credentials" menu to the left.
-1. Click the blue "CREATE NEW CLIENT ID" button.
+1. Under "OAuth" click the "Create New Client ID" blue button.
 1. Choose the "Service Account" radio button and click the blue "Create Client ID" button.
+1. Your browser will download a .json file.  Open this file with a text editor and note the Client ID.
+1. Back in the developer console, click the white "Generate new P12 key" button.  Note the password for the file (you probably won't need this, it should be the default 'notasecret')
 1. Your browser will download a .p12 file. Change the downloaded file name to privatekey.p12 and save it to the same location as gyb.exe or gyb.py
 1. Click the blue "Okay, got it" button.
-1. Under the ***Service Account section***, make a note of the Client ID and Email Address Values. You'll need them later so either copy them into Notepad or keep the API console window open in another tab. Make sure you're using the Service Account values, not the ones under "Compute Engine and App Engine"
+1. Under the ***Service Account section***, make a note of the Email Address Value. You'll need it later so either copy it into Notepad next to the Client ID or keep the API console window open in another tab.
 1. Go to your Google Apps Control Panel (https://admin.google.com )
 1. Click Security
 1. Click Show More
