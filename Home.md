@@ -229,6 +229,8 @@ gyb --email yourusersemail@yourcompany.com --service-account 123456789@developer
 
 in this example, replace 123456789@developer.gserviceaccount.com with your service account email address from the cloud console.
 
+If this isn't working, make sure you only have the latest version of Python 3 installed and any old associations and frameworks have been removed from Python 2.
+
 WARNING: Service Accounts offer very powerful control over your Google Apps domain. Do not use this option on a computer you do not trust! Do not leave the privatekey.p12 file in places where others can find it! If you suspect your Service Account has been stolen, delete the API project in the API console and unauthorize it's access to your domain.
 
 # Troubleshooting
