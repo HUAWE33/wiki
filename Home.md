@@ -205,8 +205,11 @@ There are a few steps involved with creating and authorizing a service account f
 1. Under "OAuth" click the "Create New Client ID" blue button.
 1. Choose the "Service Account" radio button and click the blue "Create Client ID" button.
 1. Your browser will download a .json file.  Open this file with a text editor and note the Client ID.
-1. Back in the developer console, click the white "Generate new P12 key" button.  Note the password for the file (you probably won't need this, it should be the default 'notasecret')
-1. Your browser will download a .p12 file. Change the downloaded file name to privatekey.p12 and save it to the same location as gyb.exe or gyb.py
+1. Earlier version:
+1. ----Back in the developer console, click the white "Generate new P12 key" button.  Note the password for the file (you probably won't need this, it should be the default 'notasecret')
+1. ----Your browser will download a .p12 file. Change the downloaded file name to privatekey.p12 and save it to the same location as gyb.exe or gyb.py
+1. ----Back in the developer console, click the white "Generate new JSON key" button.
+1. ----Save the resultant JSON file to the GYB folder with a name of: privatekey.json. 
 1. Click the blue "Okay, got it" button.
 1. Under the ***Service Account section***, make a note of the Email Address Value. You'll need it later so either copy it into Notepad next to the Client ID or keep the API console window open in another tab.
 1. Go to your Google Apps Control Panel (https://admin.google.com )
