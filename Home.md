@@ -208,7 +208,7 @@ There are a few steps involved with creating and authorizing a service account f
 1. ***For Earlier versions:***
 1. ----Back in the developer console, click the white "Generate new P12 key" button.  Note the password for the file (you probably won't need this, it should be the default 'notasecret')
 1. ----Your browser will download a .p12 file. Change the downloaded file name to privatekey.p12 and save it to the same location as gyb.exe or gyb.py
-1. ***For GYB version 0.31***
+1. ***For GYB version 0.31 64bit***
 1. ----Back in the developer console, click the white "Generate new JSON key" button.
 1. ----Save the resultant JSON file to the GYB folder with a name of: privatekey.json. 
 1. ***For any verison***
