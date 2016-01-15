@@ -6,6 +6,8 @@
 - [Step 5: Performing a restore](#step-5-performing-a-restore)
 - [Selective Backups With Gmail Search](#selective-backups-with-gmail-searching)
 - [Advanced Options](#advanced-options)
+- [Google Apps Business and Education Admins: Backup, Restore and Estimate Users and Restore to Groups](#google-apps-business-and-education-admins-backup-restore-and-estimate-users-and-restore-to-groups)
+- [Troubleshooting](#troubleshooting)
 
 # Introduction
 
