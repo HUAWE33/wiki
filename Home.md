@@ -226,8 +226,8 @@ There are a few steps involved with creating and authorizing a service account f
 1. Click Security, Show more, Advanced settings.
 1. Click Manage API Client Access
 1. For Client Name, enter the Client ID from above.
-1. For API Scopes, enter exactly:
-    https://mail.google.com/,https://www.googleapis.com/auth/apps.groups.migration,https://www.googleapis.com/auth/drive.appdata
+1. For API Scopes, enter exactly:<br>
+     https://mail.google.com/,https://www.googleapis.com/auth/apps.groups.migration,https://www.googleapis.com/auth/drive.appdata
 <br><br>Your service account setup is complete.
 
 Now you can run GYB with the --service-account option. Try running:
