@@ -181,11 +181,17 @@ DANGEROUS!!! This option will completely delete messages. Running this command w
 ## --action purge-labels
 DANGEROUS!!! This option will delete all user labels for the mailbox. No messages will be deleted but everything will be left unlabeled!
 
-## --use-imap-folder
-By default, GYB always connects to the "All Mail" IMAP folder in order to perform backups, estimates, restores and counts. However, with this option, you can specify another IMAP folder to utilize. This option is most useful in backing up Archived Chats by specifying <code>--use-imap-folder [Gmail]/Chats</code>. Make sure the Chats folder is visible to IMAP in your Gmail Settings -> Labels before running this. Note that chats cannot be restored to the Chats label in Gmail since the folder is read-only for IMAP.
-
 ## --batch-size
 By default, GYB grabs the full content of 100 messages at a time for backup. If the mailbox has lots of very small messages, you may see better backup performance by backing up more messages at once with a --batch-size 500 parameter. If the mailbox has many very large messages, it may take a very long time for GYB to backup anything as it could be pulling down up to 2500mb (100 messages x 25mb each) of data for each batch. Try specifying something smaller like --batch-size 4.
+
+## --fast-restore
+Perform a faster restore of messages. It's important to note that when performing a fast restore, restored messages will not be threaded into Gmail conversations nor will they be de-dupped. This makes viewing and managing the messages in the mailbox at a later time much more difficult.
+
+## --vault
+On restore and --fast-restore, skips adding restored messages to the user's visible Gmail mailbox and only lets the messages be visible to [Google Vault](https://apps.google.com/products/vault/). This option is meant mostly for system administrator who wish to have the restored messages be a part of the user's Vault discovery but not their visible mailbox.
+
+## --spam-trash
+Include messages in the Spam and Trash folders for backup, estimate and count actions. This allows these messages to be acted upon where normally they would be skipped.
 
 ## --service-account
 Use a Google Service Account to authenticate rather than standard 3-legged OAuth authentication. This option is only for Google Apps for Business and Education users. See below for details.
