@@ -223,17 +223,11 @@ in this example, 107634805914295539364 is your Client ID. Remember this value fo
 1. Click "Manage service accounts" to the right.
 1. Click the 3 dots to the right of your service account. Choose Edit.
 1. Place a checkmark next to "Enable Google Apps Domain-wide Delegation" and Save.
-1. Go to your Google Apps Control Panel (https://admin.google.com )
-1. Click Security
-1. Click Show More
-1. Click Advanced Settings.
+1. Go to your Google Apps Control Panel (https://admin.google.com)
+1. Click Security, Show more, Advanced settings.
 1. Click Manage API Client Access
 1. For Client Name, enter the Client ID from above.
-1. For API Scopes, enter exactly: 
-```
-https://mail.google.com/,https://www.googleapis.com/auth/apps.groups.migration,https://www.googleapis.com/auth/drive.appdata
-```
-Now you can run GYB with the service account option. Specify your service account email address from above when using --service-account.  If you are running GYB for the first time, see the directions above for setting up GYB for the first time.  Once that is complete, try running:
+1. For API Scopes, enter exactly: ```https://mail.google.com/,https://www.googleapis.com/auth/apps.groups.migration,https://www.googleapis.com/auth/drive.appdata```  Now you can run GYB with the service account option. Specify your service account email address from above when using --service-account.  If you are running GYB for the first time, see the directions above for setting up GYB for the first time.  Once that is complete, try running:
 ```
 gyb --email yourusersemail@yourcompany.com --service-account 123456789@developer.gserviceaccount.com
 ```
