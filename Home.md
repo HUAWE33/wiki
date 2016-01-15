@@ -43,7 +43,7 @@ this works if you extracted GYB to c:\gyb. If you extracted it elsewhere, specif
 gyb --email youremail@gmail.com --action estimate
 ```
 
-except use your real email address in place of youremail@gmail.com. GYB will open up a web page in order for you to grant access to your Gmail account. This authorization makes it possible for GYB to connect to your Google Account via IMAP and SMTP only, GYB will have no rights to any of your other Google Data. Make sure you are logged in to the Google account you specified before granting access. Once you've granted access, switch back to the command prompt window and hit enter. If no errors are printed, GYB should start estimating the size of your Gmail mailbox. Note that GYB only estimates the size of messages in the All Mail folder, it does not check Spam or Trash although these do count against your Gmail quota displayed at the bottom of your Gmail inbox. To accurately compare GYB's estimate and the Gmail inbox web page quota display, first empty your Trash and Spam folders.
+except use your real email address in place of youremail@gmail.com. GYB will open up a web page in order for you to grant access to your Gmail account. This authorization makes it possible for GYB to connect to your Google Account for Gmail data only, GYB will have no rights to any of your other Google Data. Make sure you are logged in to the Google account you specified before granting access. Once you've granted access, switch back to the command prompt window and hit enter. If no errors are printed, GYB should start estimating the size of your Gmail mailbox. Note that GYB only estimates the size of messages in the All Mail folder, it does not check Spam or Trash although these do count against your Gmail quota displayed at the bottom of your Gmail inbox. To accurately compare GYB's estimate and the Gmail inbox web page quota display, first empty your Trash and Spam folders.
 
 Congratulations, you're up and running with GYB! You probably want to move on to [performing a backup](https://github.com/jay0lee/got-your-back/wiki#step-4-performing-a-backup) now.
 
@@ -62,7 +62,7 @@ python3 gyb.py --email youremail@gmail.com --action estimate
 
 If you get an error about python not being a valid program, make sure you have the Python 3 interpreter installed on your machine. All Macs and most Linux installs should include Python 3 but if not, you may need to research how to install it on your OS/Distribution.
 
-GYB will open up a web page in order for you to grant GYB access to your Gmail account. This authorization makes it possible for GYB to connect to your Google Account via IMAP and SMTP only, GYB will have no rights to any of your other Google Data. Make sure you are logged in to the Google account you specified before granting access. Once you've granted access, switch back to the command prompt window and hit enter. If no errors are printed, GYB should start estimating the size of your Gmail mailbox. Note that GYB only estimates the size of messages in the All Mail folder, it does not check Spam or Trash although these do count against your Gmail quota displayed at the bottom of your Gmail inbox. To accurately compare GYB's estimate and the Gmail inbox web page quota display, first empty your Trash and Spam folders.
+GYB will open up a web page in order for you to grant GYB access to your Gmail account. This authorization makes it possible for GYB to connect to your Google Account Gmail data only, GYB will have no rights to any of your other Google Data. Make sure you are logged in to the Google account you specified before granting access. Once you've granted access, switch back to the command prompt window and hit enter. If no errors are printed, GYB should start estimating the size of your Gmail mailbox. Note that GYB only estimates the size of messages in the All Mail folder, it does not check Spam or Trash although these do count against your Gmail quota displayed at the bottom of your Gmail inbox. To accurately compare GYB's estimate and the Gmail inbox web page quota display, first empty your Trash and Spam folders.
 
 Instead of needing to type "python3 gyb.py" for every command, you can mark the gyb.py file as executable or we can use the alias command to shorten it to just "gyb":
 
@@ -158,11 +158,6 @@ GYB keeps a record of messages restored to each account and will pick up where i
 
 ## --fast-incremental
 By default, GYB will refresh the stored labels and flags for messages that have already been backed up, just in case they changed after the backup. This step can be skipped by supplying the ```--fast-incremental``` switch on the command line.
-
-## --action reindex
-GYB keeps track of the messages backed up by using the IMAP UID values for the messages. It does not happen often, but it is sometimes necessary to reorganize an IMAP mailbox and assign new UIDs. When this happens, GYB will refuse to use the existing folder for further backups. The ```--action reindex``` action will rebuild the UID index using information from the message headers. It is slow, but faster than re-downloading the full account to start a new backup.
-
-(Another option is to make a new backup folder, but include a search for "after:" some recent date for that folder. If it is ever necessary to restore the mailbox, you would then need to restore from both folders.)
 
 ## --action restore-mbox
 Restore mbox files that you've exported from [Gmail Takeout](https://www.google.com/settings/takeout), [Google Vault](https://support.google.com/vault/answer/2462365?hl=en), [GAM Email Audit Exports](https://github.com/jay0lee/GAM/wiki/ExamplesAccountAuditing#user-mailbox-exports) or any other MBOX format file you have.
