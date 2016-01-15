@@ -6,7 +6,7 @@
 - [Step 5: Performing a restore](#step-5-performing-a-restore)
 - [Selective Backups With Gmail Search](#selective-backups-with-gmail-searching)
 - [Advanced Options](#advanced-options)
-- [Google Apps Business and Education Admins: Backup, Restore and Estimate Users and Restore to Groups](#google-apps-business-and-education-admins-backup-restore-and-estimate-users-and-restore-to-groups)
+- [Google Apps for Work and EDU Admins: Backup, Restore and Estimate Users and Restore to Groups](#google-apps-business-and-education-admins-backup-restore-and-estimate-users-and-restore-to-groups)
 - [Troubleshooting](#troubleshooting)
 
 # Introduction
@@ -202,40 +202,37 @@ Include messages in the Spam and Trash folders for backup, estimate and count ac
 ## --service-account
 Use a Google Service Account to authenticate rather than standard 3-legged OAuth authentication. This option is only for Google Apps for Business and Education users. See below for details.
 
-# Google Apps Business and Education Admins: Backup, Restore and Estimate Users and Restore to Groups
-If you're using Google Apps for Business or Education Edition, it's possible to use GYB with your users without needing to know their password. This works because GYB makes use of a special Google Apps feature called Service Accounts.
+# Google Apps for Work and EDU Admins: Backup, Restore and Estimate Users and Restore to Groups
+If you're using Google Apps for Work or EDU, it's possible to use GYB with your users without needing to know their password. This works because GYB makes use of a special Google Apps feature called Service Accounts.
 
 There are a few steps involved with creating and authorizing a service account for GYB.
 
-1. Go to the [Google Developers Console](https://console.developers.google.com)
-1. Click "Create Project"
-1. Give your project a name and a unique project ID
-1. Once the project is finished being created, click "APIs & auth" to the left
-1. Go to the "APIs" menu on the left
-1. In the list of APIs, search for "Groups Migration API" and click the switch to toggle it ON. Agree to the terms.
-1. Go to "Credentials" menu to the left.
-1. Under "OAuth" click the "Create New Client ID" blue button.
-1. Choose the "Service Account" radio button and click the blue "Create Client ID" button.
-1. Your browser will download a .json file.  Open this file with a text editor and note the Client ID.
-1. ***For Earlier versions:***
-1. ----Back in the developer console, click the white "Generate new P12 key" button.  Note the password for the file (you probably won't need this, it should be the default 'notasecret')
-1. ----Your browser will download a .p12 file. Change the downloaded file name to privatekey.p12 and save it to the same location as gyb.exe or gyb.py
-1. ***For GYB version 0.31 64bit***
-1. ----Back in the developer console, click the white "Generate new JSON key" button.
-1. ----Save the resultant JSON file to the GYB folder with a name of: privatekey.json. 
-1. ***For any verison***
-1. Click the blue "Okay, got it" button.
-1. Under the ***Service Account section***, make a note of the Email Address Value. You'll need it later so either copy it into Notepad next to the Client ID or keep the API console window open in another tab.
+1. Go to the [Google Developers Console](https://console.developers.google.com/flows/enableapi?apiid=drive,gmail,groupsmigration)
+1. Select Yes and click "Agree and continue". It will take a moment for the project to be created.
+1. Click "Go to credentials"
+1. Click "New credentials" and choose "Service account key".
+1. Click "Select..." and choose "New service account".
+1. Give your service account a name like "GYB Service account".
+1. Keep JSON as key type. Click "Create".
+1. Open the file in a text editor and look for the line showing something like:
+```
+"client_id": "107634805914295539364",
+```
+in this example, 107634805914295539364 is your Client ID. Remember this value for later steps.
+1. Your browser will download a .json file.  Save the file with a name of oauth2service.json and in the same folder as gam.py or gam.exe.
+1. Click "Manage service accounts" to the right.
+1. Click the 3 dots to the right of your service account. Choose Edit.
+1. Place a checkmark next to "Enable Google Apps Domain-wide Delegation" and Save.
 1. Go to your Google Apps Control Panel (https://admin.google.com )
 1. Click Security
 1. Click Show More
-1. Click Advanced Settings (Managed advanced security features such as authentication and integrating Google Apps with internal services).
+1. Click Advanced Settings.
 1. Click Manage API Client Access
-1. At this point, you are at (unless Google has changed URLs again) https://admin.google.com/AdminHome?chromeless=1#OGX:ManageOauthClients
-1. For Client Name, enter the Client ID you recorded above. For API Scopes, enter exactly: 
+1. For Client Name, enter the Client ID from above.
+1. For API Scopes, enter exactly: 
 
 ```
-https://mail.google.com/,https://www.googleapis.com/auth/apps.groups.migration
+https://mail.google.com/,https://www.googleapis.com/auth/apps.groups.migration,https://www.googleapis.com/auth/drive.appdata
 ```
 
 Now you can run GYB with the service account option. Specify your service account email address from above when using --service-account.  If you are running GYB for the first time, see the directions above for setting up GYB for the first time.  Once that is complete, try running:
