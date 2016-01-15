@@ -217,7 +217,7 @@ There are a few steps involved with creating and authorizing a service account f
 1. Open the file in a text editor and look for the line showing something like:
 
     ```"client_id": "107634805914295539364",```
-in this example, 107634805914295539364 is your Client ID. Remember this value for later steps.
+<br>in this example, 107634805914295539364 is your Client ID. Remember this value for later steps.
 1. Your browser will download a .json file.  Save the file with a name of oauth2service.json and in the same folder as gam.py or gam.exe.
 1. Click "Manage service accounts" to the right.
 1. Click the 3 dots to the right of your service account. Choose Edit.
@@ -228,8 +228,7 @@ in this example, 107634805914295539364 is your Client ID. Remember this value fo
 1. For Client Name, enter the Client ID from above.
 1. For API Scopes, enter exactly: 
     ```https://mail.google.com/,https://www.googleapis.com/auth/apps.groups.migration,https://www.googleapis.com/auth/drive.appdata```
-
-Your service account setup is complete.
+<br>Your service account setup is complete.
 
 Now you can run GYB with the --service-account option. Try running:
 
