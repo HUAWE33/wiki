@@ -1,3 +1,12 @@
+- [Introduction](#Introduction)
+- [Step 1: Download GYB](#step-1-download-gyb)
+- [Step 2: Extract GYB](#step-2-extract-gyb)
+- [Step 3: Running GYB for the first time](#step-3-running-gyb-for-the-first-time)
+- [Step 4: Performing a backup](#step-4-performing-a-backup)
+- [Step 5: Performing a restore](#step-5-performing-a-restore)
+- [Selective Backups With Gmail Search](#selective-backups-with-gmail-searching)
+- [Advanced Options](#advanced-options)
+
 # Introduction
 
 Got Your Back (GYB) is a command line tool that backs up and restores your Gmail account. This page provides simple instructions for downloading, installing and starting to use GYB.
