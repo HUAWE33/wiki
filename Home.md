@@ -215,6 +215,7 @@ There are a few steps involved with creating and authorizing a service account f
 1. Give your service account a name like "GYB Service account".
 1. Keep JSON as key type. Click "Create".
 1. Open the file in a text editor and look for the line showing something like:
+
     ```"client_id": "107634805914295539364",```
 
 in this example, 107634805914295539364 is your Client ID. Remember this value for later steps.
@@ -229,15 +230,15 @@ in this example, 107634805914295539364 is your Client ID. Remember this value fo
 1. For API Scopes, enter exactly: 
     ```https://mail.google.com/,https://www.googleapis.com/auth/apps.groups.migration,https://www.googleapis.com/auth/drive.appdata```
 
-Now you can run GYB with the service account option. Specify your service account email address from above when using --service-account.  If you are running GYB for the first time, see the directions above for setting up GYB for the first time.  Once that is complete, try running:
-```
-gyb --email yourusersemail@yourcompany.com --service-account 123456789@developer.gserviceaccount.com
-```
-in this example, replace 123456789@developer.gserviceaccount.com with your service account email address from the cloud console.
+Your service account setup is complete.
 
-If this isn't working, make sure you only have the latest version of Python 3 installed and any old associations and frameworks have been removed from Python 2.
+Now you can run GYB with the --service-account option. Try running:
 
-WARNING: Service Accounts offer very powerful control over your Google Apps domain. Do not use this option on a computer you do not trust! Do not leave the privatekey.p12 file in places where others can find it! If you suspect your Service Account has been stolen, delete the API project in the API console and unauthorize it's access to your domain.
+```
+gyb --email yourusersemail@yourcompany.com --service-account
+```
+
+WARNING: Service Accounts offer very powerful control over your Google Apps domain. Do not use this option on a computer you do not trust! Do not leave the oauth2service.json file in places where others can find it! If you suspect your Service Account has been stolen, delete the API project in the API console and unauthorize it's access to your domain.
 
 # Troubleshooting
 
