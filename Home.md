@@ -46,17 +46,17 @@ cd ~/gyb
 this will work if you extracted the GYB files to a subfolder named gyb in your home directory. If you extracted them elsewhere, replace ~/gyb with the full path to them. Now run:
 
 ```
-python gyb.py --email youremail@gmail.com --action estimate
+python3 gyb.py --email youremail@gmail.com --action estimate
 ```
 
-If you get an error about python not being a valid program, make sure you have the Python interpreter installed on your machine. All Macs and most Linux installs should include Python but if not, you may need to research how to install it on your OS/Distribution.
+If you get an error about python not being a valid program, make sure you have the Python 3 interpreter installed on your machine. All Macs and most Linux installs should include Python 3 but if not, you may need to research how to install it on your OS/Distribution.
 
 GYB will open up a web page in order for you to grant GYB access to your Gmail account. This authorization makes it possible for GYB to connect to your Google Account via IMAP and SMTP only, GYB will have no rights to any of your other Google Data. Make sure you are logged in to the Google account you specified before granting access. Once you've granted access, switch back to the command prompt window and hit enter. If no errors are printed, GYB should start estimating the size of your Gmail mailbox. Note that GYB only estimates the size of messages in the All Mail folder, it does not check Spam or Trash although these do count against your Gmail quota displayed at the bottom of your Gmail inbox. To accurately compare GYB's estimate and the Gmail inbox web page quota display, first empty your Trash and Spam folders.
 
-Instead of needing to type "python gyb.py" for every command, you can mark the gyb.py file as executable or we can use the alias command to shorten it to just "gyb":
+Instead of needing to type "python3 gyb.py" for every command, you can mark the gyb.py file as executable or we can use the alias command to shorten it to just "gyb":
 
 ```
-alias gyb="python gyb.py"
+alias gyb="python3 gyb.py"
 ```
 
 Now when we can just type commands like:
