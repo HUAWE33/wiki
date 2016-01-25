@@ -218,7 +218,7 @@ There are a few steps involved with creating and authorizing a service account f
 
     ```"client_id": "107634805914295539364",```
 <br><br>in this example, 107634805914295539364 is your Client ID. Remember this value for later steps.
-1. Your browser will download a .json file.  Save the file with a name of oauth2service.json and in the same folder as gam.py or gam.exe.
+1. Your browser will download a .json file.  Save the file with a name of oauth2service.json and put it in the same folder as gyb.py or gyb.exe.
 1. Click "Manage service accounts" to the right.
 1. Click the 3 dots to the right of your service account. Choose Edit.
 1. Place a checkmark next to "Enable Google Apps Domain-wide Delegation" and Save.
