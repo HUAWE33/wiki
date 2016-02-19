@@ -188,7 +188,7 @@ DANGEROUS!!! This option will completely delete messages. Running this command w
 DANGEROUS!!! This option will delete all user labels for the mailbox. No messages will be deleted but everything will be left unlabeled!
 
 ## --batch-size
-By default, GYB grabs the full content of 100 messages at a time for backup. If the mailbox has lots of very small messages, you may see better backup performance by backing up more messages at once with a --batch-size 500 parameter. If the mailbox has many very large messages, it may take a very long time for GYB to backup anything as it could be pulling down up to 2500mb (100 messages x 25mb each) of data for each batch. Try specifying something smaller like --batch-size 4.
+By default, GYB grabs the full content of 100 messages at a time for backup. If the mailbox has many very large messages, it may take a very long time for GYB to backup anything as it could be pulling down up to 2500mb (100 messages x 25mb each) of data for each batch. Try specifying something smaller like --batch-size 4. The batch size range is 1-100 as of version 0.44.
 
 ## --fast-restore
 Perform a faster restore of messages. It's important to note that when performing a fast restore, restored messages will not be threaded into Gmail conversations nor will they be de-dupped. This makes viewing and managing the messages in the mailbox at a later time much more difficult.
