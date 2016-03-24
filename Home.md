@@ -242,10 +242,6 @@ WARNING: Service Accounts offer very powerful control over your Google Apps doma
 
 Below you'll find some possible errors and what they could mean.
 
-## invalid_grant
-
-This can occur if you have a typo in your service account command line, e.g. you have the client id instead of the email address.
-
 ## access_denied
 
 This can occur if you've failed to add the proper API scopes (mail, groups migration) for a service account.
