@@ -160,16 +160,16 @@ GYB keeps a record of messages restored to each account and will pick up where i
 By default, GYB will refresh the stored labels and flags for messages that have already been backed up, just in case they changed after the backup. This step can be skipped by supplying the ```--fast-incremental``` switch on the command line.
 
 ## --action restore-mbox
-Restore mbox files that you've exported from [Gmail Takeout](https://www.google.com/settings/takeout), [Google Vault](https://support.google.com/vault/answer/2462365?hl=en), [GAM Email Audit Exports](https://github.com/jay0lee/GAM/wiki/ExamplesAccountAuditing#user-mailbox-exports) or any other MBOX format file you have.
+Restore mbox files that you've exported from [Gmail Takeout](https://www.google.com/settings/takeout), [Google Vault](https://support.google.com/vault/answer/2462365), [GAM Email Audit Exports](https://github.com/jay0lee/GAM/wiki/ExamplesAccountAuditing#user-mailbox-exports) or any other MBOX format file you have.
 
 Use the --local-folder option to specify the path where you've extracted all of your mbox files. GYB will restore messages from all .mbox and .mbx files in the directory and any sub-directories.
 
 ## --action restore-group
-Google Apps for Business and Education Only. This feature allows you to restore messages to a Google Group rather than a user mailbox. It's important to note that:
+Google Apps for Work and Education only. This feature allows you to restore messages to a Google Group rather than a user mailbox. It's important to note that:
  * Message labels, read/unread status, stars and other metadata are not preserved with restore-group.
  * There is no API or method to extract or backup messages stored in Google Groups. GYB can restore messages to a group but cannot backup message in a group, it's a one-way process.
  * The Groups Migration API supports a maximum message size of 16mb so not all Gmail-stored messages can be imported into a group.
- * Groups have no quota! If you're okay with the above issues, you can offload an unlimited amount of data to a group. This may be a good solution for users approaching their 25gb quota in Gmail.
+ * Groups have no quota! If you're okay with the above issues, you can offload an unlimited amount of data to a group. This may be a good solution for users approaching their Gmail quota.
 
 This option requires the --use-admin option below be specified. The --email option should be the Google Group to restore messages into. Archiving for the group should be enabled.
 
@@ -202,8 +202,8 @@ Include messages in the Spam and Trash folders for backup, estimate and count ac
 ## --service-account
 Use a Google Service Account to authenticate rather than standard 3-legged OAuth authentication. This option is only for Google Apps for Business and Education users. See below for details.
 
-# Google Apps for Work and EDU Admins: Backup, Restore and Estimate Users and Restore to Groups
-If you're using Google Apps for Work or EDU, it's possible to use GYB with your users without needing to know their password. This works because GYB makes use of a special Google Apps feature called Service Accounts.
+# Google Apps for Work and Education admins: Backup, Restore and Estimate Users and Restore to Groups
+If you're using Google Apps for Work or Education, it's possible to use GYB with your users without needing to know their password. This works because GYB makes use of a special Google Apps feature called Service Accounts.
 
 There are a few steps involved with creating and authorizing a service account for GYB.
 
@@ -222,7 +222,7 @@ There are a few steps involved with creating and authorizing a service account f
 1. Click "Manage service accounts" to the right.
 1. Click the 3 dots to the right of your service account. Choose Edit.
 1. Place a checkmark next to "Enable Google Apps Domain-wide Delegation" and Save.
-1. Go to your Google Apps Control Panel (https://admin.google.com)
+1. Go to your Google Apps Admin console (https://admin.google.com)
 1. Click Security, Show more, Advanced settings.
 1. Click Manage API Client Access
 1. For Client Name, enter the Client ID from above.
@@ -236,7 +236,7 @@ Now you can run GYB with the --service-account option. Try running:
 gyb --email yourusersemail@yourcompany.com --service-account
 ```
 
-WARNING: Service Accounts offer very powerful control over your Google Apps domain. Do not use this option on a computer you do not trust! Do not leave the oauth2service.json file in places where others can find it! If you suspect your Service Account has been stolen, delete the API project in the API console and unauthorize it's access to your domain.
+WARNING: Service Accounts offer very powerful control over your Google Apps domain. Do not use this option on a computer you do not trust! Do not leave the oauth2service.json file in places where others can find it! If you suspect your Service Account has been stolen, delete the API project in the API console and unauthorize its access to your domain.
 
 # Troubleshooting
 
