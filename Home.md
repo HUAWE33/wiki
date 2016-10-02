@@ -120,7 +120,7 @@ You can also use the "--label-restored NEWLABELNAME" argument to set a label on 
 gyb --email newaddress@gmail.com --action restore --local-folder GYB-GMail-Backup-oldaddress@gmail.com --label-restored "Old Address"
 ```
 
-will restore the message, always including an extra label of "Old Mail" on the restored messages.
+will restore the message, always including an extra label of "Old Address" on the restored messages.
 
 # Selective Backups With Gmail Searching
 GYB supports selective backups using Gmail style mailbox searches. For example, suppose you wanted to only backup important or starred messages:
