@@ -6,14 +6,14 @@
 - [Step 5: Performing a restore](#step-5-performing-a-restore)
 - [Selective Backups With Gmail Search](#selective-backups-with-gmail-searching)
 - [Advanced Options](#advanced-options)
-- [Google Apps for Work and EDU Admins: Backup, Restore and Estimate Users and Restore to Groups](#google-apps-for-work-and-edu-admins-backup-restore-and-estimate-users-and-restore-to-groups)
+- [G Suite admins: Backup, Restore and Estimate Users, and Restore to Groups](#g-suite-admins-backup-restore-and-estimate-users-and-restore-to-groups)
 - [Troubleshooting](#troubleshooting)
 
 # Introduction
 
 Got Your Back (GYB) is a command line tool that backs up and restores your Gmail account. This page provides simple instructions for downloading, installing and starting to use GYB.
 
-GYB works with Gmail.com and Google Apps accounts.
+GYB works with Gmail.com and G Suite (formerly known as Google Apps) accounts.
 
 # Step 1: Download GYB
 ## Windows Users
@@ -165,7 +165,7 @@ Restore mbox files that you've exported from [Gmail Takeout](https://www.google.
 Use the --local-folder option to specify the path where you've extracted all of your mbox files. GYB will restore messages from all .mbox and .mbx files in the directory and any sub-directories.
 
 ## --action restore-group
-Google Apps for Work and Education only. This feature allows you to restore messages to a Google Group rather than a user mailbox. It's important to note that:
+G Suite only. This feature allows you to restore messages to a Google Group rather than a user mailbox. It's important to note that:
  * Message labels, read/unread status, stars and other metadata are not preserved with restore-group.
  * There is no API or method to extract or backup messages stored in Google Groups. GYB can restore messages to a group but cannot backup message in a group, it's a one-way process.
  * The Groups Migration API supports a maximum message size of 16mb so not all Gmail-stored messages can be imported into a group.
@@ -176,7 +176,7 @@ This option requires both the --service-account and --use-admin option to be spe
 A good use case for restore-group would be a user who is nearing Gmail quota. You could do a selective backup of the user's mailbox with a GYB backup using <code>--search before:2011/04/13 smaller:16M</code> to get only messages older than 2 years and smaller than 16mb. Then restore the messages to a Google Group and give the user exclusive access to the new group. Finally, free up the user's mailbox by performing a purge using the same search parameters. I'd also recommend holding on to the local backup of the user's mail should you ever wish to restore to the mailbox.
 
 ## --use-admin
-Specify the Google Apps admin to utilize when restoring messages to a group with --action restore-group. This user should be a super administrator, delegated admins do not have sufficient privileges to perform group restores.
+Specify the G Suite admin to utilize when restoring messages to a group with --action restore-group. This user should be a super administrator, delegated admins do not have sufficient privileges to perform group restores.
 
 ## --action count
 Just count the number of messages in a user mailbox. Note, to compare this number to what you see in Gmail, you should turn conversation mode off in general settings and search for "-is:chat". This ensures you are counting individual messages (not conversations) and that archived chats which are not backed up by GYB by default are not counted.
@@ -200,10 +200,10 @@ On restore and --fast-restore, skips adding restored messages to the user's visi
 Include messages in the Spam and Trash folders for backup, estimate and count actions. This allows these messages to be acted upon where normally they would be skipped.
 
 ## --service-account
-Use a Google Service Account to authenticate rather than standard 3-legged OAuth authentication. This option is only for Google Apps for Business and Education users. See below for details.
+Use a Google Service Account to authenticate rather than standard 3-legged OAuth authentication. This option is only for G Suite users. See below for details.
 
-# Google Apps for Work and Education admins: Backup, Restore and Estimate Users and Restore to Groups
-If you're using Google Apps for Work or Education, it's possible to use GYB with your users without needing to know their password. This works because GYB makes use of a special Google Apps feature called Service Accounts.
+# G Suite admins: Backup, Restore and Estimate Users, and Restore to Groups
+If you're using G Suite, it's possible to use GYB with your users without needing to know their password. This works because GYB makes use of a special G Suite feature called domain-wide delegation with service accounts.
 
 There are a few steps involved with creating and authorizing a service account for GYB.
 
@@ -221,8 +221,8 @@ There are a few steps involved with creating and authorizing a service account f
 1. Your browser will download a .json file.  Save the file with a name of oauth2service.json and put it in the same folder as gyb.py or gyb.exe.
 1. Click "Manage service accounts" to the right.
 1. Click the 3 dots to the right of your service account. Choose Edit.
-1. Place a checkmark next to "Enable Google Apps Domain-wide Delegation" and Save.
-1. Go to your Google Apps Admin console (https://admin.google.com)
+1. Place a checkmark next to "Enable G Suite Domain-wide Delegation" and Save.
+1. Go to your [G Suite Admin console](https://admin.google.com)
 1. Click Security, Show more, Advanced settings.
 1. Click Manage API Client Access
 1. For Client Name, enter the Client ID from above.
@@ -236,7 +236,7 @@ Now you can run GYB with the --service-account option. Try running:
 gyb --email yourusersemail@yourcompany.com --service-account
 ```
 
-WARNING: Service Accounts offer very powerful control over your Google Apps domain. Do not use this option on a computer you do not trust! Do not leave the oauth2service.json file in places where others can find it! If you suspect your Service Account has been stolen, delete the API project in the API console and unauthorize its access to your domain.
+WARNING: Service Accounts offer very powerful control over your G Suite domain. Do not use this option on a computer you do not trust! Do not leave the oauth2service.json file in places where others can find it! If you suspect your Service Account has been stolen, delete the API project in the API console and unauthorize its access to your domain in the Admin console.
 
 # Troubleshooting
 
