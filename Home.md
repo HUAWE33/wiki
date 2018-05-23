@@ -248,4 +248,4 @@ This can occur if you've failed to add the proper API scopes (mail, groups migra
 
 ## invalid_request
 
-This can occur if you're attempting to download mail from an account that is suspended; only active accounts can be backed up via Got Your Back.
+This can occur if you're attempting to download mail from an account that is suspended; only active accounts can be backed up via Got Your Back. Unless you are using a `--service-account` as they have access to backup from suspended accounts.
