@@ -214,6 +214,7 @@ There are a few steps involved with creating and authorizing a service account f
 1. Click "Select..." and choose "New service account".
 1. Give your service account a name like "GYB Service account".
 1. Keep JSON as key type. Click "Create".
+1. Agree to create the service account without a role.
 1. Open the file in a text editor and look for the line showing something like:
 
     ```"client_id": "107634805914295539364",```
@@ -221,7 +222,8 @@ There are a few steps involved with creating and authorizing a service account f
 1. Your browser will download a .json file.  Save the file with a name of oauth2service.json and put it in the same folder as gyb.py or gyb.exe.
 1. Click "Manage service accounts" to the right.
 1. Click the 3 dots to the right of your service account. Choose Edit.
-1. Place a checkmark next to "Enable G Suite Domain-wide Delegation" and Save.
+1. Place a checkmark next to "Enable G Suite Domain-wide Delegation".
+1. You have to give it a name, eg "GYB", and Save.
 1. Go to your [G Suite Admin console](https://admin.google.com)
 1. Click Security, Show more, Advanced settings.
 1. Click Manage API Client Access
