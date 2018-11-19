@@ -31,7 +31,7 @@ Use the archive extraction tool of your choice to extract the files from the GYB
 
 # Step 3: Running GYB for the First Time
 ## Windows Users
-Open a command prompt on your computer. You can do this by going to Start -> Programs -> Accessories -> Command Prompt or by opening the Run... dialog on the start menu and typing CMD then enter. Now change to the directory where you extracted GAM. The command to change directories looks like:
+Open a command prompt on your computer. You can do this by going to Start -> Programs -> Accessories -> Command Prompt or by opening the Run... dialog on the start menu and typing CMD then enter. Now change to the directory where you extracted GYB. The command to change directories looks like:
 
 ```
 cd \gyb
