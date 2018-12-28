@@ -67,7 +67,7 @@ GYB will open up a web page in order for you to grant GYB access to your Gmail a
 Instead of needing to type "python3 gyb.py" for every command, you can mark the gyb.py file as executable or we can use the alias command to shorten it to just "gyb":
 
 ```
-alias gyb="python3 gyb.py"
+echo "alias gyb='~/gyb/gyb'" >> ~/.bash_aliases
 ```
 
 Now when we can just type commands like:
@@ -75,8 +75,6 @@ Now when we can just type commands like:
 ```
 gyb --email myemail@gmail.com --action estimate
 ```
-
-you'll need to type the alias command each time you open a Terminal to run GYB. 
 
 Congratulations, you're up and running with GYB! You probably want to move on to [performing a backup](https://github.com/jay0lee/got-your-back/wiki#step-4-performing-a-backup) now.
 
