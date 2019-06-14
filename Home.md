@@ -203,7 +203,14 @@ Use a Google Service Account to authenticate rather than standard 3-legged OAuth
 # G Suite admins: Backup, Restore and Estimate Users, and Restore to Groups
 If you're using G Suite, it's possible to use GYB with your users without needing to know their password. This works because GYB makes use of a special G Suite feature called domain-wide delegation with service accounts.
 
-There are a few steps involved with creating and authorizing a service account for GYB.
+If you already have GAM setup you can leverage that existing oauth2service.json file. For Linux Users you can use the following command to symlink to the existing file.
+
+```
+ln -s $HOME/.gam/oauth2service.json $HOME/gyb/oauth2service.json
+```
+
+If you are setting up GYB for the first time, there are a few steps involved with creating and authorizing a service account.
+
 
 1. Go to the [Google Developers Console](https://console.developers.google.com/flows/enableapi?apiid=drive,gmail,groupsmigration)
 1. Select Yes and click "Agree and continue". It will take a moment for the project to be created.
@@ -218,9 +225,9 @@ There are a few steps involved with creating and authorizing a service account f
     ```"client_id": "107634805914295539364",```
 <br><br>in this example, 107634805914295539364 is your Client ID. Remember this value for later steps.
 1. Your browser will download a .json file.  Save the file with a name of oauth2service.json and put it in the same folder as gyb.py or gyb.exe.
-1. Click "Manage service accounts" to the right.
-1. Click the 3 dots to the right of your service account. Choose Edit.
-1. Place a checkmark next to "Enable G Suite Domain-wide Delegation".
+1. ~~Click "Manage service accounts" to the right.~~
+1. ~~Click the 3 dots to the right of your service account. Choose Edit.~~
+1. ~~Place a checkmark next to "Enable G Suite Domain-wide Delegation".~~
 1. You have to give it a name, eg "GYB", and Save.
 1. Go to your [G Suite Admin console](https://admin.google.com)
 1. Click Security, Show more, Advanced settings.
