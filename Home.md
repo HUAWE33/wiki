@@ -146,7 +146,7 @@ Optional: On backup, estimate, count and purge, Gmail search to scope operation 
 On backup, restore, estimate, local folder to use. Default is GYB-GMail-Backup-<email>
 
 ## --label-restored
-On restore, all messages will additionally receive this label. For example, "--label_restored gyb-restored" will label all uploaded messages with a gyb-restored label.
+On restore, all messages will additionally receive this label. For example, "--label-restored gyb-restored" will label all uploaded messages with a gyb-restored label.
 
 ## --strip-labels
 On restore and restore-mbox, strip existing labels from messages except for those explicitly declared with the --label-restored parameter.
