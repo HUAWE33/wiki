@@ -127,7 +127,7 @@ GYB supports selective backups using Gmail style mailbox searches. For example, 
 gyb --email youremail@gmail.com --search "is:important OR is:starred"
 ```
 
-would cause GYB to only backup messages matching that search query. Virtually any Gmail search will work with GYB. The only exception being that specifying "in:anywhere" will not backup Trash and Spam, there's currently no way to backup Trash and Spam with GYB. [See here for a detailed article](http://mail.google.com/support/bin/answer.py?answer=7190) on all of the possible Gmail Search parameters.
+would cause GYB to only backup messages matching that search query. Virtually any Gmail search will work with GYB. The only exception being that specifying "in:anywhere" will not backup Trash and Spam, to backup Trash and Spam with GYB see the `--spam-trash` option below. [See here for a detailed article](http://mail.google.com/support/bin/answer.py?answer=7190) on all of the possible Gmail Search parameters.
 
 Note that Gmail searches also work with the "--action estimate" command. Suppose you wanted to know how much space emails with .PDF attachments are using in your Gmail mailbox:
 
