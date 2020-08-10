@@ -10,7 +10,7 @@
 - [Performing a restore](#performing-a-restore)
 - [Selective Backups With Gmail Search](#selective-backups-with-gmail-searching)
 - [Advanced Options](#advanced-options)
-- [G Suite admins: Backup, Restore and Estimate Users, and Restore to Groups](#g-suite-admins-backup-restore-and-estimate-users-and-restore-to-groups)
+- [G Suite Admins](#g-suite-admins)
 - [Troubleshooting](#troubleshooting)
 
 # Introduction
@@ -177,19 +177,7 @@ Restore mbox files that you've exported from [Gmail Takeout](https://www.google.
 
 Use the --local-folder option to specify the path where you've extracted all of your mbox files. GYB will restore messages from all .mbox and .mbx files in the directory and any sub-directories.
 
-## --action restore-group
-G Suite only. This feature allows you to restore messages to a Google Group rather than a user mailbox. It's important to note that:
- * Message labels, read/unread status, stars and other metadata are not preserved with restore-group.
- * There is no API or method to extract or backup messages stored in Google Groups. GYB can restore messages to a group but cannot backup message in a group, it's a one-way process.
- * The Groups Migration API supports a maximum message size of 16mb so not all Gmail-stored messages can be imported into a group.
- * Groups have no quota! If you're okay with the above issues, you can offload an unlimited amount of data to a group. This may be a good solution for users approaching their Gmail quota.
 
-This option requires both the --service-account and --use-admin option to be specified. The --email option should be the Google Group to restore messages into. Archiving for the group should be enabled.
-
-A good use case for restore-group would be a user who is nearing Gmail quota. You could do a selective backup of the user's mailbox with a GYB backup using <code>--search before:2011/04/13 smaller:16M</code> to get only messages older than 2 years and smaller than 16mb. Then restore the messages to a Google Group and give the user exclusive access to the new group. Finally, free up the user's mailbox by performing a purge using the same search parameters. I'd also recommend holding on to the local backup of the user's mail should you ever wish to restore to the mailbox.
-
-## --use-admin
-Specify the G Suite admin to utilize when restoring messages to a group with --action restore-group. This user should be a super administrator, delegated admins do not have sufficient privileges to perform group restores.
 
 ## --action count
 Just count the number of messages in a user mailbox. Note, to compare this number to what you see in Gmail, you should turn conversation mode off in general settings and search for "-is:chat". This ensures you are counting individual messages (not conversations) and that archived chats which are not backed up by GYB by default are not counted.
@@ -206,16 +194,11 @@ By default, GYB grabs the full content of 100 messages at a time for backup. If 
 ## --fast-restore
 Perform a faster restore of messages. It's important to note that when performing a fast restore, restored messages will not be threaded into Gmail conversations nor will they be de-dupped. This makes viewing and managing the messages in the mailbox at a later time much more difficult.
 
-## --vault
-On restore and --fast-restore, skips adding restored messages to the user's visible Gmail mailbox and only lets the messages be visible to [Google Vault](https://apps.google.com/products/vault/). This option is meant mostly for system administrator who wish to have the restored messages be a part of the user's Vault discovery but not their visible mailbox.
-
 ## --spam-trash
 Include messages in the Spam and Trash folders for backup, estimate and count actions. This allows these messages to be acted upon where normally they would be skipped.
 
-## --service-account
-Use a Google Service Account to authenticate rather than standard 3-legged OAuth authentication. This option is only for G Suite users. See below for details.
 
-# G Suite admins: Backup, Restore and Estimate Users, and Restore to Groups
+# G Suite Admins
 If you're using G Suite, it's possible to use GYB with your users without needing to know their password. This works because GYB makes use of a special G Suite feature called domain-wide delegation with service accounts.
 
 If you already have GAM setup you can leverage that existing oauth2service.json file. For Linux Users you can use the following command to symlink to the existing file.
@@ -256,6 +239,27 @@ gyb --email yourusersemail@yourcompany.com --service-account
 ```
 
 WARNING: Service Accounts offer very powerful control over your G Suite domain. Do not use this option on a computer you do not trust! Do not leave the oauth2service.json file in places where others can find it! If you suspect your Service Account has been stolen, delete the API project in the API console and unauthorize its access to your domain in the Admin console.
+
+
+## --action restore-group
+G Suite only. This feature allows you to restore messages to a Google Group rather than a user mailbox. It's important to note that:
+ * Message labels, read/unread status, stars and other metadata are not preserved with restore-group.
+ * There is no API or method to extract or backup messages stored in Google Groups. GYB can restore messages to a group but cannot backup message in a group, it's a one-way process.
+ * The Groups Migration API supports a maximum message size of 16mb so not all Gmail-stored messages can be imported into a group.
+ * Groups have no quota! If you're okay with the above issues, you can offload an unlimited amount of data to a group. This may be a good solution for users approaching their Gmail quota.
+
+This option requires both the --service-account and --use-admin option to be specified. The --email option should be the Google Group to restore messages into. Archiving for the group should be enabled.
+
+A good use case for restore-group would be a user who is nearing Gmail quota. You could do a selective backup of the user's mailbox with a GYB backup using <code>--search before:2011/04/13 smaller:16M</code> to get only messages older than 2 years and smaller than 16mb. Then restore the messages to a Google Group and give the user exclusive access to the new group. Finally, free up the user's mailbox by performing a purge using the same search parameters. I'd also recommend holding on to the local backup of the user's mail should you ever wish to restore to the mailbox.
+
+## --use-admin
+Specify the G Suite admin to utilize when restoring messages to a group with --action restore-group. This user should be a super administrator, delegated admins do not have sufficient privileges to perform group restores.
+
+## --service-account
+Use a Google Service Account to authenticate rather than standard 3-legged OAuth authentication. This option is only for G Suite users. See below for details.
+
+## --vault
+On restore and --fast-restore, skips adding restored messages to the user's visible Gmail mailbox and only lets the messages be visible to [Google Vault](https://apps.google.com/products/vault/). This option is meant mostly for G Suite Administrators who wish to have the restored messages be a part of the user's Vault discovery but not their visible mailbox.
 
 # Troubleshooting
 
