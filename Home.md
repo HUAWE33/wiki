@@ -1,9 +1,13 @@
 - [Introduction](#Introduction)
-- [Step 1: Download GYB](#step-1-download-gyb)
-- [Step 2: Extract GYB](#step-2-extract-gyb)
-- [Step 3: Running GYB for the first time](#step-3-running-gyb-for-the-first-time)
-- [Step 4: Performing a backup](#step-4-performing-a-backup)
-- [Step 5: Performing a restore](#step-5-performing-a-restore)
+- [Install GYB Quickly](#install-gyb-quickly)
+  - [Windows Users](#windows-users)
+  - [Mac and Linux Users](#mac-and-linux-users)
+- [Install GYB Not as Quickly](#install-gyb-not-as-quicly)
+  - [Windows Users](#windows-users-1)
+  - [Mac and Linux Users](#mac-and-linux-users-1)
+  - [Running GYB for the first time](#running-gyb-for-the-first-time)
+- [Performing a backup](#performing-a-backup)
+- [Performing a restore](#performing-a-restore)
 - [Selective Backups With Gmail Search](#selective-backups-with-gmail-searching)
 - [Advanced Options](#advanced-options)
 - [G Suite admins: Backup, Restore and Estimate Users, and Restore to Groups](#g-suite-admins-backup-restore-and-estimate-users-and-restore-to-groups)
@@ -15,29 +19,44 @@ Got Your Back (GYB) is a command line tool that backs up and restores your Gmail
 
 GYB works with Gmail.com and G Suite (formerly known as Google Apps) accounts.
 
-# Step 1: Download GYB
+# Install GYB Quickly
+
 ## Windows Users
-Head to the [releases page](https://github.com/jay0lee/got-your-back/releases) and download the latest Windows version of GYB, do not download the Python Source version (unless you really know what you're doing).
+
+Download the MSI Installer from the [releases](https://github.com/jay0lee/got-your-back/releases) page. Install the MSI and you'll be prompted to setup GYB.
 
 ## Mac and Linux Users
-Head to the [releases page](https://github.com/jay0lee/got-your-back/releases) and download the latest Python source version of GYB, do not download the Windows version.
 
-# Step 2: Extract GYB
+Open a terminal and run:
+
+`bash <(curl -s -S -L https://git.io/gyb-install)`
+
+this will download GYB, install it and start setup.
+
+# Install GYB Not as Quickly
 ## Windows Users
+### ZIP Install
+Head to the [releases](https://github.com/jay0lee/got-your-back/releases) page and download the latest ZIP file for Windows, do not download the Python Source version (unless you really know what you're doing).
+
 Use the archive extraction tool of your choice to extract the files from the GYB .zip you downloaded. Windows XP and higher have a built in tool that works just fine. When specifying where to extract GYB, I suggest extracting directly to C:\ so that the files will reside in C:\gyb. Once completed, GYB should exist at C:\gyb\gyb.exe
 
-## Mac and Linux Users
-Use the archive extraction tool of your choice to extract the files from the GYB .zip you downloaded. I suggest extracting the files to a sub-folder of your home directory.
+## Linux and Mac Users
+### TAR Install
+Head to the [releases](https://github.com/jay0lee/got-your-back/releases) page and download the latest tar.xz source version of GYB.
 
-# Step 3: Running GYB for the First Time
-## Windows Users
+Use the archive extraction tool of your choice to extract the files from the GYB .tar.xz file you downloaded. I suggest extracting the files to a sub-folder of your home directory.
+
+## Running GYB for the First Time
+### Windows Users
 Open a command prompt on your computer. You can do this by going to Start -> Programs -> Accessories -> Command Prompt or by opening the Run... dialog on the start menu and typing CMD then enter. Now change to the directory where you extracted GYB. The command to change directories looks like:
 
 ```
-cd \gyb
+cd %USERPROFILE%\Downloads\gyb-1.38-windows-x86_64\gyb
 ```
 
-this works if you extracted GYB to c:\gyb. If you extracted it elsewhere, specify that location instead. Now type:
+this works if you extracted GYB to C:\Users\{username}\Downloads\gyb-1.38-windows-x86_64\gyb. If you extracted it elsewhere, specify that location instead. 
+
+Now type:
 
 ```
 gyb --email youremail@gmail.com --action estimate
@@ -47,38 +66,34 @@ except use your real email address in place of youremail@gmail.com. GYB will ope
 
 Congratulations, you're up and running with GYB! You probably want to move on to [performing a backup](https://github.com/jay0lee/got-your-back/wiki#step-4-performing-a-backup) now.
 
-## Mac and Linux Users
+### Mac and Linux Users
 Open up a terminal window on your computer. On Linux, this is generally under Accessories -> Terminal. On Mac, it's under Applications -> Utilities -> Terminal. Now change to the directory where you extracted GYB. Try:
 
 ```
 cd ~/gyb
 ```
 
-this will work if you extracted the GYB files to a subfolder named gyb in your home directory. If you extracted them elsewhere, replace ~/gyb with the full path to them. Now run:
+this will work if you extracted the GYB files to a subfolder named gyb in your home directory. If you extracted them elsewhere, replace ~/gyb with the full path to them. 
+
+Instead of needing to type the full path to gyb ("/home/{user}/gyb") for every command, you can set the gyb file as an alias to shorten it to just "gyb":
 
 ```
-python3 gyb.py --email youremail@gmail.com --action estimate
+echo "alias gyb='~/gyb/gyb'" >> ~/.bash_aliases
+```
+
+Now run:
+
+```
+gyb --email youremail@gmail.com --action estimate
 ```
 
 If you get an error about python not being a valid program, make sure you have the Python 3 interpreter installed on your machine. All Macs and most Linux installs should include Python 3 but if not, you may need to research how to install it on your OS/Distribution.
 
 GYB will open up a web page in order for you to grant GYB access to your Gmail account. This authorization makes it possible for GYB to connect to your Google Account Gmail data only, GYB will have no rights to any of your other Google Data. Make sure you are logged in to the Google account you specified before granting access. Once you've granted access, switch back to the command prompt window and hit enter. If no errors are printed, GYB should start estimating the size of your Gmail mailbox. Note that GYB only estimates the size of messages in the All Mail folder, it does not check Spam or Trash although these do count against your Gmail quota displayed at the bottom of your Gmail inbox. To accurately compare GYB's estimate and the Gmail inbox web page quota display, first empty your Trash and Spam folders.
 
-Instead of needing to type "python3 gyb.py" for every command, you can mark the gyb.py file as executable or we can use the alias command to shorten it to just "gyb":
-
-```
-echo "alias gyb='~/gyb/gyb'" >> ~/.bash_aliases
-```
-
-Now when we can just type commands like:
-
-```
-gyb --email myemail@gmail.com --action estimate
-```
-
 Congratulations, you're up and running with GYB! You probably want to move on to [performing a backup](https://github.com/jay0lee/got-your-back/wiki#step-4-performing-a-backup) now.
 
-# Step 4: Performing A Backup
+# Performing A Backup
 A basic GYB backup is very easy to start. Just run:
 
 ```
@@ -93,7 +108,7 @@ gyb --email youremail@gmail.com --local-folder "C:\Users\John\Documents\Johns_Gm
 
 GYB will keep you update you as the backup progresses.
 
-# Step 5: Performing a Restore
+# Performing a Restore
 Restores on GYB are also very simple:
 
 ```
