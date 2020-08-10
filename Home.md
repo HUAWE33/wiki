@@ -225,9 +225,6 @@ If you are setting up GYB for the first time, there are a few steps involved wit
     ```"client_id": "107634805914295539364",```
 <br><br>in this example, 107634805914295539364 is your Client ID. Remember this value for later steps.
 1. Your browser will download a .json file.  Save the file with a name of oauth2service.json and put it in the same folder as gyb.py or gyb.exe.
-1. ~~Click "Manage service accounts" to the right.~~
-1. ~~Click the 3 dots to the right of your service account. Choose Edit.~~
-1. ~~Place a checkmark next to "Enable G Suite Domain-wide Delegation".~~
 1. You have to give it a name, eg "GYB", and Save.
 1. Go to your [G Suite Admin console](https://admin.google.com)
 1. Click Security, Show more, Advanced settings.
