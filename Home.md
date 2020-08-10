@@ -17,7 +17,7 @@
 
 Got Your Back (GYB) is a command line tool that backs up and restores your Gmail account. This page provides simple instructions for downloading, installing and starting to use GYB.
 
-GYB works with Gmail.com and G Suite (formerly known as Google Apps) accounts.
+GYB works with Gmail.com and G Suite accounts.
 
 # Install GYB Quickly
 
