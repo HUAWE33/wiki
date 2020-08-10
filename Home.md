@@ -2,7 +2,7 @@
 - [Install GYB Quickly](#install-gyb-quickly)
   - [Windows Users](#windows-users)
   - [Mac and Linux Users](#mac-and-linux-users)
-- [Install GYB Not as Quickly](#install-gyb-not-as-quicly)
+- [Install GYB Not as Quickly](#install-gyb-not-as-quickly)
   - [Windows Users](#windows-users-1)
   - [Mac and Linux Users](#mac-and-linux-users-1)
   - [Running GYB for the first time](#running-gyb-for-the-first-time)
