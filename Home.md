@@ -240,7 +240,7 @@ GYB keeps a record of messages restored to each account and will pick up where i
 ## --search
 Optional: On backup, estimate, count and purge, Gmail search to scope operation against.
 
-##--short-version
+## --short-version
 Just print version and quit
 
 ## --spam-trash
