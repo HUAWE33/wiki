@@ -11,6 +11,10 @@
 - [Selective Backups With Gmail Search](#selective-backups-with-gmail-searching)
 - [Advanced Options](#advanced-options)
 - [G Suite Admins](#g-suite-admins)
+  - [--action restore-group](#--action-restore-group)
+  - [--use-admin](#--use-admin)
+  - [--service-account](#--service-account)
+  - [--vault](#--vault)
 - [Troubleshooting](#troubleshooting)
 
 # Introduction
