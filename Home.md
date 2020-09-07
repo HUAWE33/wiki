@@ -6,6 +6,7 @@
   - [Windows Users](#windows-users-1)
   - [Mac and Linux Users](#mac-and-linux-users-1)
   - [Running GYB for the first time](#running-gyb-for-the-first-time)
+- [Upgrading GYB](#upgrading-gyb)
 - [Performing a backup](#performing-a-backup)
 - [Performing a restore](#performing-a-restore)
 - [Selective Backups With Gmail Search](#selective-backups-with-gmail-searching)
@@ -96,6 +97,15 @@ If you get an error about python not being a valid program, make sure you have t
 GYB will open up a web page in order for you to grant GYB access to your Gmail account. This authorization makes it possible for GYB to connect to your Google Account Gmail data only, GYB will have no rights to any of your other Google Data. Make sure you are logged in to the Google account you specified before granting access. Once you've granted access, switch back to the command prompt window and hit enter. If no errors are printed, GYB should start estimating the size of your Gmail mailbox. Note that GYB only estimates the size of messages in the All Mail folder, it does not check Spam or Trash although these do count against your Gmail quota displayed at the bottom of your Gmail inbox. To accurately compare GYB's estimate and the Gmail inbox web page quota display, first empty your Trash and Spam folders.
 
 Congratulations, you're up and running with GYB! You probably want to move on to [performing a backup](https://github.com/jay0lee/got-your-back/wiki#step-4-performing-a-backup) now.
+
+# Upgrading GYB
+To upgrade an existing GYB install, run:
+
+```
+bash <(curl -s -S -L https://git.io/gyb-install) -l
+```
+
+The -l at the end tells the download script to upgrade to latest version and not perform the project setup steps. This will preserve your current settings and existing backups.
 
 # Performing A Backup
 A basic GYB backup is very easy to start. Just run:
