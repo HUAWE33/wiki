@@ -71,6 +71,15 @@ except use your real email address in place of youremail@gmail.com. GYB will ope
 
 Congratulations, you're up and running with GYB! You probably want to move on to [performing a backup](https://github.com/jay0lee/got-your-back/wiki#step-4-performing-a-backup) now.
 
+
+#### OAuth Consent
+
+If your Google account is not a GSuite account, and you are setting up for the first time, Google will present you with an 
+'OAuth Consent' page instead of the page to create a credential. In this instance, you must fill in an application name and two
+email addresses, and proceed through the 'continue' button flow. You don't need to fill in any 'additional information' for verification.
+
+Once you've completed that flow, you will find yourself at the 'APIs & Services' Dashboard. Select 'Credentials', and '+ CREATE CREDENTIAL'. Now you can follow the instructions from gyb's prompt.
+
 ### Mac and Linux Users
 Open up a terminal window on your computer. On Linux, this is generally under Accessories -> Terminal. On Mac, it's under Applications -> Utilities -> Terminal. Now change to the directory where you extracted GYB. Try:
 
