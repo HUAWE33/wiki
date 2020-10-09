@@ -11,7 +11,7 @@
 - [Performing a restore](#performing-a-restore)
 - [Selective Backups With Gmail Search](#selective-backups-with-gmail-searching)
 - [Advanced Options](#advanced-options)
-- [G Suite Admins](#g-suite-admins)
+- [Google Workspace Admins](#google-workspace-admins)
   - [--action restore-group](#--action-restore-group)
   - [--use-admin](#--use-admin)
   - [--service-account](#--service-account)
@@ -22,7 +22,7 @@
 
 Got Your Back (GYB) is a command line tool that backs up and restores your Gmail account. This page provides simple instructions for downloading, installing and starting to use GYB.
 
-GYB works with Gmail.com and G Suite accounts.
+GYB works with Gmail.com and Google Workspace (formerly G Suite / Google Apps) accounts.
 
 # Install GYB Quickly
 
@@ -74,11 +74,11 @@ Congratulations, you're up and running with GYB! You probably want to move on to
 
 #### OAuth Consent
 
-If your Google account is not a GSuite account, and you are setting up for the first time, Google will present you with an 
+If your Google account is not a Google Workspace account, and you are setting up for the first time, Google will present you with an 
 'OAuth Consent' page instead of the page to create a credential. In this instance, you must fill in an application name and two
 email addresses, and proceed through the 'continue' button flow. You don't need to fill in any 'additional information' for verification.
 
-Once you've completed that flow, you will find yourself at the 'APIs & Services' Dashboard. Select 'Credentials', and '+ CREATE CREDENTIAL'. Now you can follow the instructions from gyb's prompt.
+Once you've completed that flow, you will find yourself at the 'APIs & Services' Dashboard. Select 'Credentials', and '+ CREATE CREDENTIAL'. Now you can follow the instructions from GYB's prompt.
 
 ### Mac and Linux Users
 Open up a terminal window on your computer. On Linux, this is generally under Accessories -> Terminal. On Mac, it's under Applications -> Utilities -> Terminal. Now change to the directory where you extracted GYB. Try:
@@ -277,8 +277,8 @@ Python 3.7+ only. Set maximum version of TLS HTTPS connections use. Default is n
 ## --version
 Print GYB version and quit.
 
-# G Suite Admins
-If you're using G Suite, it's possible to use GYB with your users without needing to know their password. This works because GYB makes use of a special G Suite feature called domain-wide delegation with service accounts.
+# Google Workspace Admins
+If you're using Google Workspace, it's possible to use GYB with your users without needing to know their password. This works because GYB makes use of a special Google Workspace feature called domain-wide delegation with service accounts.
 
 If you already have GAM setup you can leverage that existing oauth2service.json file. For Linux Users you can use the following command to symlink to the existing file.
 
@@ -299,17 +299,22 @@ If you are setting up GYB for the first time, there are a few steps involved wit
 1. Agree to create the service account without a role.
 1. Open the file in a text editor and look for the line showing something like:
 
-    ```"client_id": "107634805914295539364",```
-<br><br>in this example, 107634805914295539364 is your Client ID. Remember this value for later steps.
+   `"client_id": "107634805914295539364",`
+
+    in this example, 107634805914295539364 is your Client ID. Remember this value for later steps.
 1. Your browser will download a .json file.  Save the file with a name of oauth2service.json and put it in the same folder as gyb.py or gyb.exe.
 1. You have to give it a name, eg "GYB", and Save.
-1. Go to your [G Suite Admin console](https://admin.google.com)
-1. Click Security, Show more, Advanced settings.
-1. Click Manage API Client Access
-1. For Client Name, enter the Client ID from above.
-1. For API Scopes, enter exactly:<br><br>
-     https://mail.google.com/,https://www.googleapis.com/auth/apps.groups.migration,https://www.googleapis.com/auth/drive.appdata
-<br><br>Your service account setup is complete.
+1. Go to [Domain-wide Delegation in your Google Workspace Admin console](https://admin.google.com/ac/owl/domainwidedelegation)
+1. Click "Add New".
+1. For Client ID, enter the Client ID from above.
+1. For API Scopes, enter exactly:
+
+   ```
+   https://mail.google.com/,https://www.googleapis.com/auth/apps.groups.migration,https://www.googleapis.com/auth/drive.appdata
+   ```
+1. Click "Authorize".
+
+Your service account setup is complete.
 
 Now you can run GYB with the --service-account option. Try running:
 
@@ -317,10 +322,10 @@ Now you can run GYB with the --service-account option. Try running:
 gyb --email yourusersemail@yourcompany.com --service-account
 ```
 
-WARNING: Service Accounts offer very powerful control over your G Suite domain. Do not use this option on a computer you do not trust! Do not leave the oauth2service.json file in places where others can find it! If you suspect your Service Account has been stolen, delete the API project in the API console and unauthorize its access to your domain in the Admin console.
+WARNING: Service Accounts offer very powerful control over your Google Workspace domain. Do not use this option on a computer you do not trust! Do not leave the oauth2service.json file in places where others can find it! If you suspect your Service Account has been stolen, delete the API project in the API console and unauthorize its access to your domain in the Admin console.
 
 ## --action restore-group
-G Suite only. This feature allows you to restore messages to a Google Group rather than a user mailbox. It's important to note that:
+Google Workspace only. This feature allows you to restore messages to a Google Group rather than a user mailbox. It's important to note that:
  * Message labels, read/unread status, stars and other metadata are not preserved with restore-group.
  * There is no API or method to extract or backup messages stored in Google Groups. GYB can restore messages to a group but cannot backup message in a group, it's a one-way process.
  * The Groups Migration API supports a maximum message size of 16mb so not all Gmail-stored messages can be imported into a group.
@@ -328,16 +333,16 @@ G Suite only. This feature allows you to restore messages to a Google Group rath
 
 This option requires both the --service-account and --use-admin option to be specified. The --email option should be the Google Group to restore messages into. Archiving for the group should be enabled.
 
-A good use case for restore-group would be a user who is nearing Gmail quota. You could do a selective backup of the user's mailbox with a GYB backup using <code>--search before:2011/04/13 smaller:16M</code> to get only messages older than 2 years and smaller than 16mb. Then restore the messages to a Google Group and give the user exclusive access to the new group. Finally, free up the user's mailbox by performing a purge using the same search parameters. I'd also recommend holding on to the local backup of the user's mail should you ever wish to restore to the mailbox.
+A good use case for restore-group would be a user who is nearing Gmail quota. You could do a selective backup of the user's mailbox with a GYB backup using `--search before:2011/04/13 smaller:16M` to get only messages older than 2 years and smaller than 16mb. Then restore the messages to a Google Group and give the user exclusive access to the new group. Finally, free up the user's mailbox by performing a purge using the same search parameters. I'd also recommend holding on to the local backup of the user's mail should you ever wish to restore to the mailbox.
 
 ## --service-account
-Use a Google Service Account to authenticate rather than standard 3-legged OAuth authentication. This option is only for G Suite users. See below for details.
+Use a Google Service Account to authenticate rather than standard 3-legged OAuth authentication. This option is only for Google Workspace admins. See below for details.
 
 ## --use-admin
-Specify the G Suite admin to utilize when restoring messages to a group with --action restore-group. This user should be a super administrator, delegated admins do not have sufficient privileges to perform group restores.
+Specify the Google Workspace admin to utilize when restoring messages to a group with --action restore-group. This user should be a super administrator, delegated admins do not have sufficient privileges to perform group restores.
 
 ## --vault
-On restore and --fast-restore, skips adding restored messages to the user's visible Gmail mailbox and only lets the messages be visible to [Google Vault](https://apps.google.com/products/vault/). This option is meant mostly for G Suite Administrators who wish to have the restored messages be a part of the user's Vault discovery but not their visible mailbox.
+On restore and --fast-restore, skips adding restored messages to the user's visible Gmail mailbox and only lets the messages be visible to [Google Vault](https://workspace.google.com/products/vault/). This option is meant mostly for Google Workspace Administrators who wish to have the restored messages be a part of the user's Vault discovery but not their visible mailbox.
 
 # Troubleshooting
 
