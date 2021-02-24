@@ -327,7 +327,8 @@ WARNING: Service Accounts offer very powerful control over your Google Workspace
 ## --action restore-group
 Google Workspace only. This feature allows you to restore messages to a Google Group rather than a user mailbox. It's important to note that:
  * Message labels, read/unread status, stars and other metadata are not preserved with restore-group.
- * There is no API or method to extract or backup messages stored in Google Groups. GYB can restore messages to a group but cannot backup message in a group, it's a one-way process.
+ * GYB can't extract messages stored in Google Groups; however, it's possible to export group's emails using Google Takeout. Google Takeout's group export features is available also for consumer accounts.
+
  * The Groups Migration API supports a maximum message size of 16mb so not all Gmail-stored messages can be imported into a group.
  * Groups have no quota! If you're okay with the above issues, you can offload an unlimited amount of data to a group. This may be a good solution for users approaching their Gmail quota.
 
