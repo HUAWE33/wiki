@@ -283,7 +283,7 @@ If you're using Google Workspace, it's possible to use GYB with your users witho
 If you already have GAM setup you can leverage that existing oauth2service.json file. For Linux Users you can use the following command to symlink to the existing file.
 
 ```
-ln -s $HOME/.gam/oauth2service.json $HOME/gyb/oauth2service.json
+ln -s $HOME/.gam/oauth2service.json $HOME/bin/gyb/oauth2service.json
 ```
 
 If you are setting up GYB for the first time, there are a few steps involved with creating and authorizing a service account.
