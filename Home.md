@@ -215,6 +215,10 @@ DANGEROUS!!! This option will delete all user labels for the mailbox. No message
 ## --action restore-mbox
 Restore mbox files that you've exported from [Gmail Takeout](https://www.google.com/settings/takeout), [Google Vault](https://support.google.com/vault/answer/2462365), [GAM Email Audit Exports](https://github.com/jay0lee/GAM/wiki/ExamplesAccountAuditing#user-mailbox-exports) or any other MBOX format file you have.
 
+**Important note:** this command can restore external **EML** files just as well, as long as you rename them to end with MBOX.
+
+For example, rename `external.eml` to `external.eml.mbox` or even just `external.mbox` (but the latter will probably make you forget it's actually EML).
+
 Use the --local-folder option to specify the path where you've extracted all of your mbox files. GYB will restore messages from all .mbox and .mbx files in the directory and any sub-directories.
 
 ## --action revoke
