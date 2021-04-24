@@ -61,25 +61,6 @@ cd %USERPROFILE%\Downloads\gyb-1.38-windows-x86_64\gyb
 
 this works if you extracted GYB to C:\Users\{username}\Downloads\gyb-1.38-windows-x86_64\gyb. If you extracted it elsewhere, specify that location instead. 
 
-Now type:
-
-```
-gyb --email youremail@gmail.com --action estimate
-```
-
-except use your real email address in place of youremail@gmail.com. GYB will open up a web page in order for you to grant access to your Gmail account. This authorization makes it possible for GYB to connect to your Google Account for Gmail data only, GYB will have no rights to any of your other Google Data. Make sure you are logged in to the Google account you specified before granting access. Once you've granted access, switch back to the command prompt window and hit enter. If no errors are printed, GYB should start estimating the size of your Gmail mailbox. Note that GYB only estimates the size of messages in the All Mail folder, it does not check Spam or Trash although these do count against your Gmail quota displayed at the bottom of your Gmail inbox. To accurately compare GYB's estimate and the Gmail inbox web page quota display, first empty your Trash and Spam folders.
-
-Congratulations, you're up and running with GYB! You probably want to move on to [performing a backup](https://github.com/jay0lee/got-your-back/wiki#step-4-performing-a-backup) now.
-
-
-#### OAuth Consent
-
-If your Google account is not a Google Workspace account, and you are setting up for the first time, Google will present you with an 
-'OAuth Consent' page instead of the page to create a credential. In this instance, you must fill in an application name and two
-email addresses, and proceed through the 'continue' button flow. You don't need to fill in any 'additional information' for verification.
-
-Once you've completed that flow, you will find yourself at the 'APIs & Services' Dashboard. Select 'Credentials', and '+ CREATE CREDENTIAL'. Now you can follow the instructions from GYB's prompt.
-
 ### Mac and Linux Users
 Open up a terminal window on your computer. On Linux, this is generally under Accessories -> Terminal. On Mac, it's under Applications -> Utilities -> Terminal. Now change to the directory where you extracted GYB. Try:
 
@@ -95,15 +76,39 @@ Instead of needing to type the full path to gyb ("/home/{user}/gyb") for every c
 echo "alias gyb='~/gyb/gyb'" >> ~/.bash_aliases
 ```
 
-Now run:
+### General
+
+Now type:
+
+```
+gyb --action create-project --email youremail@gmail.com
+```
+
+**Mac and Linux Users**: If you get an error about python not being a valid program, make sure you have the Python 3 interpreter installed on your machine. All Macs and most Linux installs should include Python 3 but if not, you may need to research how to install it on your OS/Distribution.
+
+Then follow the instructions. They'll help you create a Google Cloud project.
+
+**Important note**: If you don't use Google Workspace, Google forces your project to be "External" i.e. **Public**.
+The project is in a test mode by default though, so your alternatives are:
+1. Add your e-mail address to the test (under the option of "Users").
+1. Publish the project so everyone can use. You probably would want to avoid that option.
+
+#### OAuth Consent
+The instructions will ask you to supply **Client ID** and **Client Secret** without telling you how to find them though, so here's how:
+
+Once you've completed that flow, you will find yourself at the 'APIs & Services' Dashboard. Select 'Credentials', and '+ CREATE CREDENTIAL'. Now you can follow the instructions from GYB's prompt.
+
+#### Verification
+
+You'll need to register your app inside your Google account.
+
+Any command will do it, but if you don't want to immediately backup/restore, you can with a passive verification command:
 
 ```
 gyb --email youremail@gmail.com --action estimate
 ```
 
-If you get an error about python not being a valid program, make sure you have the Python 3 interpreter installed on your machine. All Macs and most Linux installs should include Python 3 but if not, you may need to research how to install it on your OS/Distribution.
-
-GYB will open up a web page in order for you to grant GYB access to your Gmail account. This authorization makes it possible for GYB to connect to your Google Account Gmail data only, GYB will have no rights to any of your other Google Data. Make sure you are logged in to the Google account you specified before granting access. Once you've granted access, switch back to the command prompt window and hit enter. If no errors are printed, GYB should start estimating the size of your Gmail mailbox. Note that GYB only estimates the size of messages in the All Mail folder, it does not check Spam or Trash although these do count against your Gmail quota displayed at the bottom of your Gmail inbox. To accurately compare GYB's estimate and the Gmail inbox web page quota display, first empty your Trash and Spam folders.
+except use your real email address in place of youremail@gmail.com. GYB will open up a web page in order for you to grant access to your Gmail account. This authorization makes it possible for GYB to connect to your Google Account for Gmail data only, GYB will have no rights to any of your other Google Data. Make sure you are logged in to the Google account you specified before granting access. Once you've granted access, switch back to the command prompt window and hit enter. If no errors are printed, GYB should start estimating the size of your Gmail mailbox. Note that GYB only estimates the size of messages in the All Mail folder, it does not check Spam or Trash although these do count against your Gmail quota displayed at the bottom of your Gmail inbox. To accurately compare GYB's estimate and the Gmail inbox web page quota display, first empty your Trash and Spam folders.
 
 Congratulations, you're up and running with GYB! You probably want to move on to [performing a backup](https://github.com/jay0lee/got-your-back/wiki#step-4-performing-a-backup) now.
 
