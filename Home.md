@@ -91,7 +91,7 @@ Then follow the instructions. They'll help you create a Google Cloud project.
 **Important note**: If you don't use Google Workspace, Google forces your project to be "External" i.e. **Public**.
 The project is in a test mode by default though, so your alternatives are:
 1. Add your e-mail address to the test (under the option of "Users").
-1. Publish the project so everyone can use. You probably would want to avoid that option.
+1. Publish the project so everyone can use it. You probably would want to avoid that option.
 
 #### OAuth Consent
 The instructions will ask you to supply **Client ID** and **Client Secret** without telling you how to find them though, so here's how:
