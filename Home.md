@@ -102,7 +102,7 @@ Once you've completed that flow, you will find yourself at the 'APIs & Services'
 
 You'll need to register your app inside your Google account.
 
-Any command will do it, but if you don't want to immediately backup/restore, you can with a passive verification command:
+Any regular command will do it, but if you don't want to immediately backup/restore, you can use a passive verification command:
 
 ```
 gyb --email youremail@gmail.com --action estimate
