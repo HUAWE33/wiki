@@ -180,6 +180,16 @@ gyb --email youremail@gmail.com --action estimate --search "filename:PDF"
 
 will estimate the size of messages with PDF attachments only. Try substituting DOC, JPG, ZIP and other common file attachments for PDF.
 
+## Improving backup speed (incremental daily backups)
+
+The `--search` option can be used to improve backup speed for daily backups. To avoid going through all your old email that doesn't change much and only backup new emails (and recently read/sorted emails), you can use a command like:
+
+```
+gyb --email youremail@gmail.com --search "newer_than:7d"
+```
+
+This faster backup can be used as a daily cron task, with a complete backup (without the search) as a weekly task.
+
 # Advanced options
 
 ## --action backup
