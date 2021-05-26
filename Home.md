@@ -348,12 +348,12 @@ Google Workspace only. This feature allows you to restore messages to a Google G
  * Message labels, read/unread status, stars and other metadata are not preserved with restore-group.
  * GYB can't extract messages stored in Google Groups; however, it's possible to export group's emails using Google Takeout. Google Takeout's group export features is available also for consumer accounts.
 
- * The Groups Migration API supports a maximum message size of 16mb so not all Gmail-stored messages can be imported into a group.
+ * The Groups Migration API supports a maximum message size of 25mb so not all Gmail-stored messages can be imported into a group.
  * Groups have no quota! If you're okay with the above issues, you can offload an unlimited amount of data to a group. This may be a good solution for users approaching their Gmail quota.
 
 This option requires both the --service-account and --use-admin option to be specified. The --email option should be the Google Group to restore messages into. Archiving for the group should be enabled.
 
-A good use case for restore-group would be a user who is nearing Gmail quota. You could do a selective backup of the user's mailbox with a GYB backup using `--search before:2011/04/13 smaller:16M` to get only messages older than 2 years and smaller than 16mb. Then restore the messages to a Google Group and give the user exclusive access to the new group. Finally, free up the user's mailbox by performing a purge using the same search parameters. I'd also recommend holding on to the local backup of the user's mail should you ever wish to restore to the mailbox.
+A good use case for restore-group would be a user who is nearing Gmail quota. You could do a selective backup of the user's mailbox with a GYB backup using `--search before:2011/04/13 smaller:25M` to get only messages older than 2 years and smaller than 25mb. Then restore the messages to a Google Group and give the user exclusive access to the new group. Finally, free up the user's mailbox by performing a purge using the same search parameters. I'd also recommend holding on to the local backup of the user's mail should you ever wish to restore to the mailbox.
 
 ## --service-account
 Use a Google Service Account to authenticate rather than standard 3-legged OAuth authentication. This option is only for Google Workspace admins. See below for details.
