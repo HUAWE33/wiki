@@ -356,7 +356,7 @@ This option requires both the --service-account and --use-admin option to be spe
 A good use case for restore-group would be a user who is nearing Gmail quota. You could do a selective backup of the user's mailbox with a GYB backup using `--search before:2011/04/13 smaller:25M` to get only messages older than 2 years and smaller than 25mb. Then restore the messages to a Google Group and give the user exclusive access to the new group. Finally, free up the user's mailbox by performing a purge using the same search parameters. I'd also recommend holding on to the local backup of the user's mail should you ever wish to restore to the mailbox.
 
 ## --service-account
-Use a Google Service Account to authenticate rather than standard 3-legged OAuth authentication. This option is only for Google Workspace admins. See below for details.
+Use a Google Service Account to authenticate rather than standard 3-legged OAuth authentication. This option is only for Google Workspace admins.
 
 ## --use-admin
 Specify the Google Workspace admin to utilize when restoring messages to a group with --action restore-group. This user should be a super administrator, delegated admins do not have sufficient privileges to perform group restores.
