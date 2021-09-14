@@ -244,7 +244,7 @@ By default, GYB grabs the full content of 100 messages at a time for backup. If 
 Specify a certificate authority to use for validating HTTPS hosts.
 
 ## --debug
-urn on verbose debugging and connection information (troubleshooting)
+Turn on verbose debugging and connection information (troubleshooting)
 
 ## --fast-incremental
 By default, GYB will refresh the stored labels and flags for messages that have already been backed up, just in case they changed after the backup. This step can be skipped by supplying the ```--fast-incremental``` switch on the command line.
