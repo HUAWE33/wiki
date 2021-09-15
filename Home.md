@@ -153,15 +153,15 @@ If you want to restore messages to an account other than the one you backed up, 
 gyb --email newaddress@gmail.com --action restore --local-folder GYB-GMail-Backup-oldaddress@gmail.com
 ```
 
-will look for messages in the backup of the oldaddress@gmail.com account but restore them to the newaddress@gmail.com account.
+will look for messages in the backup of the `oldaddress@gmail.com` account but restore them to the `newaddress@gmail.com` account.
 
-You can also use the "--label-restored NEWLABELNAME" argument to set a label on all restored messages. For example:
+You can also use the `--label-restored <NEWLABELNAME>` argument to set a label on all restored messages. For example:
 
 ```
 gyb --email newaddress@gmail.com --action restore --local-folder GYB-GMail-Backup-oldaddress@gmail.com --label-restored "Old Address"
 ```
 
-will restore the message, always including an extra label of "Old Address" on the restored messages.
+will restore the message, always including an extra label of `Old Address` on the restored messages.
 
 # Selective Backups With Gmail Searching
 GYB supports selective backups using Gmail style mailbox searches. For example, suppose you wanted to only backup important or starred messages:
@@ -238,7 +238,7 @@ Use the --local-folder option to specify the path where you've extracted all of 
 split-mbox is no longer necessary and is deprecated. Mbox file size should not impact restore performance in this version.
 
 ## --batch-size
-By default, GYB grabs the full content of 100 messages at a time for backup. If the mailbox has many very large messages, it may take a very long time for GYB to backup anything as it could be pulling down up to 5000mb (100 messages x 50mb each) of data for each batch. Try specifying something smaller like --batch-size 4. The batch size range is 1-100 as of version 0.44.
+By default, GYB grabs the full content of 100 messages at a time for backup. If the mailbox has many very large messages, it may take a very long time for GYB to backup anything as it could be pulling down up to 5000 MB (100 messages x 50 MB each) of data for each batch. Try specifying something smaller like --batch-size 4. The batch size range is 1-100 as of version 0.44.
 
 ## --ca-file
 Specify a certificate authority to use for validating HTTPS hosts.
@@ -247,27 +247,27 @@ Specify a certificate authority to use for validating HTTPS hosts.
 Turn on verbose debugging and connection information (troubleshooting)
 
 ## --fast-incremental
-By default, GYB will refresh the stored labels and flags for messages that have already been backed up, just in case they changed after the backup. This step can be skipped by supplying the ```--fast-incremental``` switch on the command line.
+By default, GYB will refresh the stored labels and flags for messages that have already been backed up, just in case they changed after the backup. This step can be skipped by supplying the `--fast-incremental` switch on the command line.
 
 ## --fast-restore
 DEPRECATED (do not use): --fast-restore (message insert) is no longer supported by GYB. See: [Gmail API Release Notes](https://developers.google.com/gmail/api/release-notes#12_november_2019_new_messageimport_implementation)
 (using this method breaks Gmail deduplication and threading)
 
-Perform a faster restore of messages. It's important to note that when performing a fast restore, restored messages will not be threaded into Gmail conversations nor will they be de-dupped. This makes viewing and managing the messages in the mailbox at a later time much more difficult.
+Perform a faster restore of messages. It's important to note that when performing a fast restore, restored messages will not be threaded into Gmail conversations nor will they be deduped. This makes viewing and managing the messages in the mailbox at a later time much more difficult.
 
 ## --help
 Display help message.
 
 ## --label-restored
-On restore, all messages will additionally receive this label. For example, "--label-restored gyb-restored" will label all uploaded messages with a gyb-restored label.
+On restore, all messages will additionally receive this label. For example, `--label-restored gyb-restored` will label all uploaded messages with a `gyb-restored` label.
 
 ## --local-folder
-On backup, restore, estimate, local folder to use. Default is GYB-GMail-Backup-<email>
+On backup, restore, estimate, local folder to use. Default is `GYB-GMail-Backup-<email>`
 
 ## --label-prefix
-Optional: On restore, all labels will additionally receive this prefix label. For example, "--label-prefix gyb-archive" will become main label of all uploaded labels with a gyb-prefix label. 
-ATTENTION - This is not compatible with --label-strip
-ATTENTION - This will also create one INBOX and SENT specific label
+Optional: On restore, all labels will additionally receive this prefix label. For example, `--label-prefix gyb-archive` will become main label of all uploaded labels with a `gyb-archive` label. 
+ATTENTION - This is not compatible with `--strip-labels`
+ATTENTION - This will also create one `INBOX` and `SENT` specific label
 
 ## --memory-limit
 Limit in megabytes batch requests allow. Prevents memory issues.
