@@ -246,6 +246,14 @@ Specify a certificate authority to use for validating HTTPS hosts.
 ## --debug
 Turn on verbose debugging and connection information (troubleshooting)
 
+## --extra-reserved-labels
+Extra labels that should be treated as reserved. Syntax: `--extra-reserved-labels EXTRA_RESERVED_LABELS [EXTRA_RESERVED_LABELS ...]`
+
+## --extra-system-labels
+Extra labels that should be treated as system labels. Syntax: `--extra-system-labels EXTRA_SYSTEM_LABELS [EXTRA_SYSTEM_LABELS ...]`
+
+## --debug
+
 ## --fast-incremental
 By default, GYB will refresh the stored labels and flags for messages that have already been backed up, just in case they changed after the backup. This step can be skipped by supplying the `--fast-incremental` switch on the command line.
 
