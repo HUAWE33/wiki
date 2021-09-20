@@ -229,7 +229,7 @@ Restore mbox files that you've exported from [Gmail Takeout](https://www.google.
 
 For example, rename `external.eml` to `external.eml.mbox` or even just `external.mbox` (but the latter will probably make you forget it's actually EML).
 
-Use the --local-folder option to specify the path where you've extracted all of your mbox files. GYB will restore messages from all .mbox and .mbx files in the directory and any sub-directories.
+Use the --local-folder option to specify the path where you've extracted all of your mbox files. GYB will restore messages from all .mbox and .mbx files in the directory **and any sub-directories**.
 
 ## --action revoke
 --action revoke does not work with --service-account
