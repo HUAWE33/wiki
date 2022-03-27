@@ -6,7 +6,11 @@
   - [Windows Users](#windows-users-1)
   - [Mac and Linux Users](#mac-and-linux-users-1)
   - [Running GYB for the first time](#running-gyb-for-the-first-time)
+    - [Windows Users](#windows-users-2)
+    - [Mac and Linux Users](#mac-and-linux-users-2)
 - [Upgrading GYB](#upgrading-gyb)
+  - [Windows Users](#windows-users-3)
+  - [Mac and Linux Users](#mac-and-linux-users-3)
 - [Performing a backup](#performing-a-backup)
 - [Performing a restore](#performing-a-restore)
 - [Selective Backups With Gmail Search](#selective-backups-with-gmail-searching)
@@ -113,7 +117,11 @@ except use your real email address in place of youremail@gmail.com. GYB will ope
 Congratulations, you're up and running with GYB! You probably want to move on to [performing a backup](https://github.com/jay0lee/got-your-back/wiki#step-4-performing-a-backup) now.
 
 # Upgrading GYB
-To upgrade an existing GYB install, run:
+## Windows Users
+To upgrade an existing GYB install in **Windows**, just copy and paste the new downloaded files to **overwrite** their older versions.
+
+## Mac and Linux Users
+In other operation systems, to upgrade an existing GYB install, run:
 
 ```
 bash <(curl -s -S -L https://git.io/gyb-install) -l
@@ -223,13 +231,11 @@ DANGEROUS!!! This option will delete all user labels for the mailbox. No message
 ## --action restore
 
 ## --action restore-mbox
-Restore mbox files that you've exported from [Gmail Takeout](https://www.google.com/settings/takeout), [Google Vault](https://support.google.com/vault/answer/2462365), [GAM Email Audit Exports](https://github.com/jay0lee/GAM/wiki/ExamplesAccountAuditing#user-mailbox-exports) or any other MBOX format file you have.
+Restore mbox files, that you've exported from [Gmail Takeout](https://www.google.com/settings/takeout), [Google Vault](https://support.google.com/vault/answer/2462365), [GAM Email Audit Exports](https://github.com/jay0lee/GAM/wiki/ExamplesAccountAuditing#user-mailbox-exports) or any other MBOX format file you have, or EML files which are text raw data [downloaded from Gmail](https://support.google.com/mail/answer/29436), etc.
 
-**Important note:** this command can restore external **EML** files just as well, as long as you rename them to end with MBOX.
+* [Before](https://github.com/GAM-team/got-your-back/commit/2849eb0d6cff036fd9e63c3fe19a9b493bec0b19) [v1.51](https://github.com/GAM-team/got-your-back/compare/v1.50...v1.52#diff-8b7bc6c9e0ee31d87be644e452b633563d0deb6ed5b396745de40996af830836), it only supported EML files if you renamed them to end with MBOX. For example, renaming `external.eml` to `external.eml.mbox` or even just `external.mbox` (but the latter probably causes to forget it's actually EML).
 
-For example, rename `external.eml` to `external.eml.mbox` or even just `external.mbox` (but the latter will probably make you forget it's actually EML).
-
-Use the --local-folder option to specify the path where you've extracted all of your mbox files. GYB will restore messages from all .mbox and .mbx files in the directory **and any sub-directories**.
+Use the --local-folder option to specify the path where you've extracted all of your mbox files. GYB will restore messages from all `.mbox`, `.mbx` and `.eml` files in the directory **and any sub-directories**.
 
 ## --action revoke
 --action revoke does not work with --service-account
