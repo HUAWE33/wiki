@@ -49,7 +49,7 @@ Head to the [releases](https://github.com/jay0lee/got-your-back/releases) page a
 
 Use the archive extraction tool of your choice to extract the files from the GYB .zip you downloaded. Windows XP and higher have a built in tool that works just fine. When specifying where to extract GYB, I suggest extracting directly to C:\ so that the files will reside in C:\gyb. Once completed, GYB should exist at C:\gyb\gyb.exe
 
-## Linux and Mac Users
+## Mac and Linux Users
 ### TAR Install
 Head to the [releases](https://github.com/jay0lee/got-your-back/releases) page and download the latest tar.xz source version of GYB.
 
